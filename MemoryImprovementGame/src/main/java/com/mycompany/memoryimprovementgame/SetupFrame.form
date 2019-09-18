@@ -27,42 +27,19 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-              <Component id="relationLbl" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="relationLbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
               <Component id="pictureLbl" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                      <Component id="welcomeMsg" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextField8" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="jTextField9" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nameField1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="nameField2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="nameField3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="nameField4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="nameField5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="relationBox1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="relationBox2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="relationBox3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="relationBox4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="relationBox5" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox6" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTextField7" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
@@ -82,15 +59,39 @@
                                   <Component id="jComboBox13" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jButton15" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="nextFrame" min="-2" pref="100" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="nameField1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="nameField2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="nameField3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="nameField4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="nameField5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="jTextField6" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="relationBox1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="relationBox2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="relationBox3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="relationBox4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="relationBox5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jComboBox6" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace pref="137" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="welcomeMsg" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pictureBtn1" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="pictureBtn2" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
@@ -106,16 +107,15 @@
                   <Component id="jButton13" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="jButton14" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="welcomeMsg" min="-2" pref="67" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" pref="35" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="relationLbl" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -201,8 +201,8 @@
                   <Component id="jComboBox13" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton14" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
-              <Component id="jButton15" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="nextFrame" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -745,26 +745,41 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Add picture"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pictureBtn2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add picture"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pictureBtn3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add picture"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pictureBtn4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add picture"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn4ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pictureBtn5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add picture"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn5ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton6">
       <Properties>
@@ -806,12 +821,12 @@
         <Property name="text" type="java.lang.String" value="Add picture"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton15">
+    <Component class="javax.swing.JButton" name="nextFrame">
       <Properties>
         <Property name="text" type="java.lang.String" value="Next"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton15ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextFrameActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
