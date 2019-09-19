@@ -15,10 +15,9 @@ import javax.swing.JFileChooser;
  */
 public class SetupFrame extends javax.swing.JFrame {
     
-    String namesAndRelations[] = new String[2];
     JFileChooser fc = new JFileChooser();
-    Map<String, String> map = new HashMap<>();
-    Map<String, String[]> mapOfPic = new TreeMap<>();
+    Map<String, List<String>> map = new HashMap<>();
+    Properties properties = new Properties();
     String filePath;
 
     /**
@@ -467,7 +466,9 @@ public class SetupFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField13ActionPerformed
 
     private void nextFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameActionPerformed
-        System.out.print(mapOfPic);
+        
+        
+        System.out.print(map);
         MainMenuFrame mainFrame = new MainMenuFrame();
         mainFrame.setVisible(true);
         this.dispose();
@@ -477,45 +478,51 @@ public class SetupFrame extends javax.swing.JFrame {
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        namesAndRelations[0] = nameField1.getText();
-        namesAndRelations[1] = relationBox1.getSelectedItem().toString();
-        mapOfPic.put(filePath, namesAndRelations);
+        List<String> person1 = new ArrayList<>();
+        person1.add(nameField1.getText());
+        person1.add(relationBox1.getSelectedItem().toString());
+        map.put(filePath, person1);
+        
     }//GEN-LAST:event_pictureBtn1ActionPerformed
 
     private void pictureBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn2ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        namesAndRelations[0] = nameField2.getText();
-        namesAndRelations[1] = relationBox2.getSelectedItem().toString();
-        mapOfPic.put(filePath, namesAndRelations);
+        List<String> person2 = new ArrayList<>();
+        person2.add(nameField2.getText());
+        person2.add(relationBox2.getSelectedItem().toString());
+        map.put(filePath, person2);
     }//GEN-LAST:event_pictureBtn2ActionPerformed
 
     private void pictureBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn3ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        namesAndRelations[0] = nameField3.getText();
-        namesAndRelations[1] = relationBox3.getSelectedItem().toString();
-        mapOfPic.put(filePath, namesAndRelations);        
+        List<String> person3 = new ArrayList<>();
+        person3.add(nameField3.getText());
+        person3.add(relationBox3.getSelectedItem().toString());
+        map.put(filePath, person3);        
     }//GEN-LAST:event_pictureBtn3ActionPerformed
 
     private void pictureBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn4ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        namesAndRelations[0] = nameField4.getText();
-        namesAndRelations[1] = relationBox4.getSelectedItem().toString();
-        mapOfPic.put(filePath, namesAndRelations);        
+        List<String> person4 = new ArrayList<>();
+        person4.add(nameField4.getText());
+        person4.add(relationBox4.getSelectedItem().toString());
+        map.put(filePath, person4);        
     }//GEN-LAST:event_pictureBtn4ActionPerformed
 
     private void pictureBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn5ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        namesAndRelations[0] = nameField5.getText();
-        namesAndRelations[1] = relationBox5.getSelectedItem().toString();
-        mapOfPic.put(filePath, namesAndRelations);        
+        List<String> person5 = new ArrayList<>();
+        person5.add(nameField5.getText());
+        person5.add(relationBox5.getSelectedItem().toString());
+        map.put(filePath, person5);        
     }//GEN-LAST:event_pictureBtn5ActionPerformed
 
     /**
