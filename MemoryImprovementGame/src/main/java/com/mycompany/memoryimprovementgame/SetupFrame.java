@@ -6,8 +6,12 @@
 package com.mycompany.memoryimprovementgame;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.*;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,9 +20,19 @@ import javax.swing.JFileChooser;
 public class SetupFrame extends javax.swing.JFrame {
     
     JFileChooser fc = new JFileChooser();
-    Map<String, List<String>> map = new HashMap<>();
+    ArrayList<FamilyMember> fmArry = new ArrayList<>();
     Properties properties = new Properties();
     String filePath;
+    String configFile = "config.ser";
+    int memberCount = 0;
+    int motherCount = 0;
+    int fatherCount = 0;
+    FamilyMember fm1 = new FamilyMember();
+    FamilyMember fm2 = new FamilyMember();
+    FamilyMember fm3 = new FamilyMember();
+    FamilyMember fm4 = new FamilyMember();
+    FamilyMember fm5 = new FamilyMember();
+    
 
     /**
      * Creates new form SetupFrame
@@ -171,14 +185,39 @@ public class SetupFrame extends javax.swing.JFrame {
         });
 
         relationBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose One...", "Father", "Mother", "Brother", "Sister", "Grand-mother", "Grand-father", "Aunt", "Uncle", "Cousin", "Nephew", "Niece", "Step-Father", "Step-Mother", "Step-Brother", "Step-Sister", "Half-Brother", "Half-Sister", "Son", "Daughter", "Grand-son", "Grand-daughter", "Great Grand-son", "Great Grand-daughter" }));
+        relationBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relationBox1ActionPerformed(evt);
+            }
+        });
 
         relationBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose One...", "Father", "Mother", "Brother", "Sister", "Grand-mother", "Grand-father", "Aunt", "Uncle", "Cousin", "Nephew", "Niece", "Step-Father", "Step-Mother", "Step-Brother", "Step-Sister", "Half-Brother", "Half-Sister", "Son", "Daughter", "Grand-son", "Grand-daughter", "Great Grand-son", "Great Grand-daughter" }));
+        relationBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relationBox2ActionPerformed(evt);
+            }
+        });
 
         relationBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose One...", "Father", "Mother", "Brother", "Sister", "Grand-mother", "Grand-father", "Aunt", "Uncle", "Cousin", "Nephew", "Niece", "Step-Father", "Step-Mother", "Step-Brother", "Step-Sister", "Half-Brother", "Half-Sister", "Son", "Daughter", "Grand-son", "Grand-daughter", "Great Grand-son", "Great Grand-daughter" }));
+        relationBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relationBox3ActionPerformed(evt);
+            }
+        });
 
         relationBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose One...", "Father", "Mother", "Brother", "Sister", "Grand-mother", "Grand-father", "Aunt", "Uncle", "Cousin", "Nephew", "Niece", "Step-Father", "Step-Mother", "Step-Brother", "Step-Sister", "Half-Brother", "Half-Sister", "Son", "Daughter", "Grand-son", "Grand-daughter", "Great Grand-son", "Great Grand-daughter" }));
+        relationBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relationBox4ActionPerformed(evt);
+            }
+        });
 
         relationBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose One...", "Father", "Mother", "Brother", "Sister", "Grand-mother", "Grand-father", "Aunt", "Uncle", "Cousin", "Nephew", "Niece", "Step-Father", "Step-Mother", "Step-Brother", "Step-Sister", "Half-Brother", "Half-Sister", "Son", "Daughter", "Grand-son", "Grand-daughter", "Great Grand-son", "Great Grand-daughter" }));
+        relationBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relationBox5ActionPerformed(evt);
+            }
+        });
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Father", "Mother", "Brother", "Sister", "Grand-mother", "Grand-father", "Aunt", "Uncle", "Cousin", "Nephew", "Niece", "Step-Father", "Step-Mother", "Step-Brother", "Step-Sister", "Half-Brother", "Half-Sister", "Son", "Daughter", "Grand-son", "Grand-daughter", "Great Grand-son", "Great Grand-daughter" }));
 
@@ -466,64 +505,184 @@ public class SetupFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField13ActionPerformed
 
     private void nextFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameActionPerformed
+        try {
+            FileOutputStream file = new FileOutputStream(configFile);
+            ObjectOutputStream out = new ObjectOutputStream(file);
+            
+            fmArry.add(fm1);
+            fmArry.add(fm2);
+            fmArry.add(fm3);
+            fmArry.add(fm4);
+            fmArry.add(fm5);
+            
+            out.writeObject(fmArry);
+            out.close();
+            file.close();
+            
+        } catch(IOException ex) {
+            System.out.println("IOException is caught.");
+        }
+        
+        System.out.println(fatherCount);
+        System.out.println(motherCount);
+        
+        if (fatherCount != 1 || motherCount != 1)
+        {
+            JOptionPane.showMessageDialog(null, "You cannot have more than one mother or father. Please check the relations and try again.", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            MainMenuFrame mainFrame = new MainMenuFrame();
+            mainFrame.setVisible(true);
+            this.dispose();
+        }
         
         
-        System.out.print(map);
-        MainMenuFrame mainFrame = new MainMenuFrame();
-        mainFrame.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_nextFrameActionPerformed
 
     private void pictureBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn1ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        List<String> person1 = new ArrayList<>();
-        person1.add(nameField1.getText());
-        person1.add(relationBox1.getSelectedItem().toString());
-        map.put(filePath, person1);
         
+        fm1.name = nameField1.getText();
+        fm1.relation = relationBox1.getSelectedItem().toString();
+        fm1.filePath = filePath;
     }//GEN-LAST:event_pictureBtn1ActionPerformed
 
     private void pictureBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn2ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        List<String> person2 = new ArrayList<>();
-        person2.add(nameField2.getText());
-        person2.add(relationBox2.getSelectedItem().toString());
-        map.put(filePath, person2);
+        
+        fm2.name = nameField2.getText();
+        fm2.relation = relationBox2.getSelectedItem().toString();
+        fm2.filePath = filePath;
     }//GEN-LAST:event_pictureBtn2ActionPerformed
 
     private void pictureBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn3ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        List<String> person3 = new ArrayList<>();
-        person3.add(nameField3.getText());
-        person3.add(relationBox3.getSelectedItem().toString());
-        map.put(filePath, person3);        
+       
+        fm3.name = nameField3.getText();
+        fm3.relation = relationBox3.getSelectedItem().toString();
+        fm3.filePath = filePath;        
     }//GEN-LAST:event_pictureBtn3ActionPerformed
 
     private void pictureBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn4ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        List<String> person4 = new ArrayList<>();
-        person4.add(nameField4.getText());
-        person4.add(relationBox4.getSelectedItem().toString());
-        map.put(filePath, person4);        
+        
+        fm4.name = nameField4.getText();
+        fm4.relation = relationBox4.getSelectedItem().toString();
+        fm4.filePath = filePath;
     }//GEN-LAST:event_pictureBtn4ActionPerformed
 
     private void pictureBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn5ActionPerformed
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
-        List<String> person5 = new ArrayList<>();
-        person5.add(nameField5.getText());
-        person5.add(relationBox5.getSelectedItem().toString());
-        map.put(filePath, person5);        
+        
+        fm5.name = nameField1.getText();
+        fm5.relation = relationBox1.getSelectedItem().toString();
+        fm5.filePath = filePath;        
     }//GEN-LAST:event_pictureBtn5ActionPerformed
+
+    private void relationBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox1ActionPerformed
+        if ("Father".equals(relationBox1.getSelectedItem().toString()))
+        {
+            if (fatherCount == 1)
+            {
+                fatherCount++;
+            } else if (fatherCount > 2)
+            {
+                fatherCount = 1;
+            }
+                memberCount++;
+        } else if ("Mother".equals(relationBox1.getSelectedItem().toString()))
+        {
+            motherCount++;
+            memberCount++;
+        } else {
+            memberCount++;
+        }
+    }//GEN-LAST:event_relationBox1ActionPerformed
+
+    private void relationBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox2ActionPerformed
+        if ("Father".equals(relationBox2.getSelectedItem().toString()))
+        {
+            if (fatherCount == 1)
+            {
+                fatherCount++;
+            } else {
+                fatherCount = 1;
+            }
+                memberCount++;
+        } else if ("Mother".equals(relationBox2.getSelectedItem().toString()))
+        {
+            motherCount++;
+            memberCount++;
+        } else {
+            memberCount++;
+        }
+    }//GEN-LAST:event_relationBox2ActionPerformed
+
+    private void relationBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox3ActionPerformed
+        if ("Father".equals(relationBox3.getSelectedItem().toString()))
+        {
+            if (fatherCount == 1)
+            {
+                fatherCount++;
+            } else {
+                fatherCount = 1;
+            }
+                memberCount++;
+        } else if ("Mother".equals(relationBox3.getSelectedItem().toString()))
+        {
+            motherCount++;
+            memberCount++;
+        } else {
+            memberCount++;
+        }
+    }//GEN-LAST:event_relationBox3ActionPerformed
+
+    private void relationBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox4ActionPerformed
+        if (relationBox4.getSelectedItem().toString() == "Father")
+        {
+            if (fatherCount == 1)
+            {
+                fatherCount++;
+            } else {
+                fatherCount = 1;
+            }
+                memberCount++;
+        } else if (relationBox4.getSelectedItem().toString() == "Mother")
+        {
+            motherCount++;
+            memberCount++;
+        } else {
+            memberCount++;
+        }
+    }//GEN-LAST:event_relationBox4ActionPerformed
+
+    private void relationBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox5ActionPerformed
+        if (relationBox5.getSelectedItem().toString() == "Father")
+        {
+            if (fatherCount == 1)
+            {
+                fatherCount++;
+            } else {
+                fatherCount = 1;
+            }
+                memberCount++;
+        } else if (relationBox5.getSelectedItem().toString() == "Mother")
+        {
+            motherCount++;
+            memberCount++;
+        } else {
+            memberCount++;
+        }
+    }//GEN-LAST:event_relationBox5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -554,6 +713,7 @@ public class SetupFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new SetupFrame().setVisible(true);
             }
