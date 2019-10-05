@@ -526,14 +526,20 @@ public class SetupFrame extends javax.swing.JFrame {
         System.out.println(fatherCount);
         System.out.println(motherCount);
         
-        if (fatherCount != 1 || motherCount != 1)
+         MainMenuFrame mainFrame = new MainMenuFrame();
+         mainFrame.setVisible(true);
+         this.dispose();
+        
+         
+         //commented out for now
+        /*****if (fatherCount != 1 || motherCount != 1)
         {
             JOptionPane.showMessageDialog(null, "You cannot have more than one mother or father. Please check the relations and try again.", "Warning", JOptionPane.INFORMATION_MESSAGE);
         } else {
             MainMenuFrame mainFrame = new MainMenuFrame();
             mainFrame.setVisible(true);
             this.dispose();
-        }
+        } ***/
         
         
     }//GEN-LAST:event_nextFrameActionPerformed
