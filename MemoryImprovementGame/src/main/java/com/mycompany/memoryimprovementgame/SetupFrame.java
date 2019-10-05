@@ -6,8 +6,10 @@
 package com.mycompany.memoryimprovementgame;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.*;
 import javax.swing.JFileChooser;
@@ -505,7 +507,37 @@ public class SetupFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField13ActionPerformed
 
     private void nextFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameActionPerformed
+        SetupFrame obj = new SetupFrame();
+        obj.serializeFamilyMember(fm1);
+        obj.serializeFamilyMember(fm2);
+        
         try {
+            FileOutputStream file = new FileOutputStream(configFile);
+            ObjectOutputStream out = new ObjectOutputStream(file);
+            out.writeObject(fm1);
+            out.writeObject(fm2);
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        try {
+            FileInputStream fis = new FileInputStream("config.ser");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        while(fis.available() > 0) {
+            try {
+                Object rper = ois.readObject();
+                JOptionPane.showMessageDialog(null, "Name: " + rper, "Saved Persons", JOptionPane.INFORMATION_MESSAGE);
+            } catch(ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        
+            
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        /***try {
             FileOutputStream file = new FileOutputStream(configFile);
             ObjectOutputStream out = new ObjectOutputStream(file);
             
@@ -521,7 +553,7 @@ public class SetupFrame extends javax.swing.JFrame {
             
         } catch(IOException ex) {
             System.out.println("IOException is caught.");
-        }
+        }***/
         
         System.out.println(fatherCount);
         System.out.println(motherCount);
@@ -724,6 +756,34 @@ public class SetupFrame extends javax.swing.JFrame {
                 new SetupFrame().setVisible(true);
             }
         });
+    }
+    
+    public void serializeFamilyMember(FamilyMember familyMember) {
+        FileOutputStream fout = null;
+        ObjectOutputStream oos = null;
+        
+        try {
+            fout = new FileOutputStream("config.ser");
+            oos = new ObjectOutputStream(fout);
+            oos.writeObject(familyMember);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (fout != null) {
+                try {
+                    fout.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (oos != null) {
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
