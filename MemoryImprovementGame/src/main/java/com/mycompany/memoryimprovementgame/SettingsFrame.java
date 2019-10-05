@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package com.mycompany.memoryimprovementgame;
+import java.io.IOException; 
+import java.nio.file.*;
+import java.io.File;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
 
 /**
  *
@@ -28,6 +33,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         returnToMain = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -35,6 +41,13 @@ public class SettingsFrame extends javax.swing.JFrame {
         returnToMain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnToMainActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Reset Configuration");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -46,11 +59,17 @@ public class SettingsFrame extends javax.swing.JFrame {
                 .addContainerGap(435, Short.MAX_VALUE)
                 .addComponent(returnToMain)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(416, Short.MAX_VALUE)
+                .addContainerGap(326, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(67, 67, 67)
                 .addComponent(returnToMain)
                 .addContainerGap())
         );
@@ -63,6 +82,25 @@ public class SettingsFrame extends javax.swing.JFrame {
         mainFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_returnToMainActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        /* Delete the config.ser file*/ 
+        String configFilePath = "C:\\Users\\...\\...\\...\\...\\MemoryImprovementGame\\config.ser";
+        File configFile = new File(configFilePath);
+        if(configFile.delete()){
+            System.out.println("config.ser file has been deleted");
+        }
+        else {
+            System.out.print("config.ser file has not been deleted");
+        }
+       
+       
+        /* Reset Back to Setup Screen*/ 
+        SetupFrame setupFrame = new SetupFrame();
+        setupFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,6 +138,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton returnToMain;
     // End of variables declaration//GEN-END:variables
 }
