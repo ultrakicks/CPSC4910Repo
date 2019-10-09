@@ -37,32 +37,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField8" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="jTextField9" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField7" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="jTextField10" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="jTextField11" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="jTextField12" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="jTextField13" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jComboBox7" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox8" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox9" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox10" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox11" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox12" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox13" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="nextFrame" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="nextFrame" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace pref="429" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -71,7 +49,6 @@
                                   <Component id="nameField3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                   <Component id="nameField4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                   <Component id="nameField5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -80,11 +57,10 @@
                                   <Component id="relationBox3" alignment="0" max="32767" attributes="0"/>
                                   <Component id="relationBox4" alignment="0" max="32767" attributes="0"/>
                                   <Component id="relationBox5" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jComboBox6" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace pref="137" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="137" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -98,14 +74,6 @@
                   <Component id="pictureBtn3" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="pictureBtn4" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="pictureBtn5" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton6" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton7" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton8" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton9" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton10" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton12" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton13" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton14" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
@@ -151,57 +119,7 @@
                   <Component id="relationBox5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pictureBtn5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton6" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton7" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton8" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton9" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField10" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBox10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton10" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField11" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox11" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton12" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField12" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox12" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton13" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField13" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox13" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton14" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
               <Component id="nextFrame" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -252,46 +170,6 @@
     <Component class="javax.swing.JTextField" name="nameField5">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameField5ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField6ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField7ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField8">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField8ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField9">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField9ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField10">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField10ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField11">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField11ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField12">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField12ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField13">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField13ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="relationBox1">
@@ -484,278 +362,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox6">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="23">
-            <StringItem index="0" value="Father"/>
-            <StringItem index="1" value="Mother"/>
-            <StringItem index="2" value="Brother"/>
-            <StringItem index="3" value="Sister"/>
-            <StringItem index="4" value="Grand-mother"/>
-            <StringItem index="5" value="Grand-father"/>
-            <StringItem index="6" value="Aunt"/>
-            <StringItem index="7" value="Uncle"/>
-            <StringItem index="8" value="Cousin"/>
-            <StringItem index="9" value="Nephew"/>
-            <StringItem index="10" value="Niece"/>
-            <StringItem index="11" value="Step-Father"/>
-            <StringItem index="12" value="Step-Mother"/>
-            <StringItem index="13" value="Step-Brother"/>
-            <StringItem index="14" value="Step-Sister"/>
-            <StringItem index="15" value="Half-Brother"/>
-            <StringItem index="16" value="Half-Sister"/>
-            <StringItem index="17" value="Son"/>
-            <StringItem index="18" value="Daughter"/>
-            <StringItem index="19" value="Grand-son"/>
-            <StringItem index="20" value="Grand-daughter"/>
-            <StringItem index="21" value="Great Grand-son"/>
-            <StringItem index="22" value="Great Grand-daughter"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox7">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="23">
-            <StringItem index="0" value="Father"/>
-            <StringItem index="1" value="Mother"/>
-            <StringItem index="2" value="Brother"/>
-            <StringItem index="3" value="Sister"/>
-            <StringItem index="4" value="Grand-mother"/>
-            <StringItem index="5" value="Grand-father"/>
-            <StringItem index="6" value="Aunt"/>
-            <StringItem index="7" value="Uncle"/>
-            <StringItem index="8" value="Cousin"/>
-            <StringItem index="9" value="Nephew"/>
-            <StringItem index="10" value="Niece"/>
-            <StringItem index="11" value="Step-Father"/>
-            <StringItem index="12" value="Step-Mother"/>
-            <StringItem index="13" value="Step-Brother"/>
-            <StringItem index="14" value="Step-Sister"/>
-            <StringItem index="15" value="Half-Brother"/>
-            <StringItem index="16" value="Half-Sister"/>
-            <StringItem index="17" value="Son"/>
-            <StringItem index="18" value="Daughter"/>
-            <StringItem index="19" value="Grand-son"/>
-            <StringItem index="20" value="Grand-daughter"/>
-            <StringItem index="21" value="Great Grand-son"/>
-            <StringItem index="22" value="Great Grand-daughter"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox8">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="23">
-            <StringItem index="0" value="Father"/>
-            <StringItem index="1" value="Mother"/>
-            <StringItem index="2" value="Brother"/>
-            <StringItem index="3" value="Sister"/>
-            <StringItem index="4" value="Grand-mother"/>
-            <StringItem index="5" value="Grand-father"/>
-            <StringItem index="6" value="Aunt"/>
-            <StringItem index="7" value="Uncle"/>
-            <StringItem index="8" value="Cousin"/>
-            <StringItem index="9" value="Nephew"/>
-            <StringItem index="10" value="Niece"/>
-            <StringItem index="11" value="Step-Father"/>
-            <StringItem index="12" value="Step-Mother"/>
-            <StringItem index="13" value="Step-Brother"/>
-            <StringItem index="14" value="Step-Sister"/>
-            <StringItem index="15" value="Half-Brother"/>
-            <StringItem index="16" value="Half-Sister"/>
-            <StringItem index="17" value="Son"/>
-            <StringItem index="18" value="Daughter"/>
-            <StringItem index="19" value="Grand-son"/>
-            <StringItem index="20" value="Grand-daughter"/>
-            <StringItem index="21" value="Great Grand-son"/>
-            <StringItem index="22" value="Great Grand-daughter"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox9">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="23">
-            <StringItem index="0" value="Father"/>
-            <StringItem index="1" value="Mother"/>
-            <StringItem index="2" value="Brother"/>
-            <StringItem index="3" value="Sister"/>
-            <StringItem index="4" value="Grand-mother"/>
-            <StringItem index="5" value="Grand-father"/>
-            <StringItem index="6" value="Aunt"/>
-            <StringItem index="7" value="Uncle"/>
-            <StringItem index="8" value="Cousin"/>
-            <StringItem index="9" value="Nephew"/>
-            <StringItem index="10" value="Niece"/>
-            <StringItem index="11" value="Step-Father"/>
-            <StringItem index="12" value="Step-Mother"/>
-            <StringItem index="13" value="Step-Brother"/>
-            <StringItem index="14" value="Step-Sister"/>
-            <StringItem index="15" value="Half-Brother"/>
-            <StringItem index="16" value="Half-Sister"/>
-            <StringItem index="17" value="Son"/>
-            <StringItem index="18" value="Daughter"/>
-            <StringItem index="19" value="Grand-son"/>
-            <StringItem index="20" value="Grand-daughter"/>
-            <StringItem index="21" value="Great Grand-son"/>
-            <StringItem index="22" value="Great Grand-daughter"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox10">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="23">
-            <StringItem index="0" value="Father"/>
-            <StringItem index="1" value="Mother"/>
-            <StringItem index="2" value="Brother"/>
-            <StringItem index="3" value="Sister"/>
-            <StringItem index="4" value="Grand-mother"/>
-            <StringItem index="5" value="Grand-father"/>
-            <StringItem index="6" value="Aunt"/>
-            <StringItem index="7" value="Uncle"/>
-            <StringItem index="8" value="Cousin"/>
-            <StringItem index="9" value="Nephew"/>
-            <StringItem index="10" value="Niece"/>
-            <StringItem index="11" value="Step-Father"/>
-            <StringItem index="12" value="Step-Mother"/>
-            <StringItem index="13" value="Step-Brother"/>
-            <StringItem index="14" value="Step-Sister"/>
-            <StringItem index="15" value="Half-Brother"/>
-            <StringItem index="16" value="Half-Sister"/>
-            <StringItem index="17" value="Son"/>
-            <StringItem index="18" value="Daughter"/>
-            <StringItem index="19" value="Grand-son"/>
-            <StringItem index="20" value="Grand-daughter"/>
-            <StringItem index="21" value="Great Grand-son"/>
-            <StringItem index="22" value="Great Grand-daughter"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox11">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="23">
-            <StringItem index="0" value="Father"/>
-            <StringItem index="1" value="Mother"/>
-            <StringItem index="2" value="Brother"/>
-            <StringItem index="3" value="Sister"/>
-            <StringItem index="4" value="Grand-mother"/>
-            <StringItem index="5" value="Grand-father"/>
-            <StringItem index="6" value="Aunt"/>
-            <StringItem index="7" value="Uncle"/>
-            <StringItem index="8" value="Cousin"/>
-            <StringItem index="9" value="Nephew"/>
-            <StringItem index="10" value="Niece"/>
-            <StringItem index="11" value="Step-Father"/>
-            <StringItem index="12" value="Step-Mother"/>
-            <StringItem index="13" value="Step-Brother"/>
-            <StringItem index="14" value="Step-Sister"/>
-            <StringItem index="15" value="Half-Brother"/>
-            <StringItem index="16" value="Half-Sister"/>
-            <StringItem index="17" value="Son"/>
-            <StringItem index="18" value="Daughter"/>
-            <StringItem index="19" value="Grand-son"/>
-            <StringItem index="20" value="Grand-daughter"/>
-            <StringItem index="21" value="Great Grand-son"/>
-            <StringItem index="22" value="Great Grand-daughter"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox12">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="23">
-            <StringItem index="0" value="Father"/>
-            <StringItem index="1" value="Mother"/>
-            <StringItem index="2" value="Brother"/>
-            <StringItem index="3" value="Sister"/>
-            <StringItem index="4" value="Grand-mother"/>
-            <StringItem index="5" value="Grand-father"/>
-            <StringItem index="6" value="Aunt"/>
-            <StringItem index="7" value="Uncle"/>
-            <StringItem index="8" value="Cousin"/>
-            <StringItem index="9" value="Nephew"/>
-            <StringItem index="10" value="Niece"/>
-            <StringItem index="11" value="Step-Father"/>
-            <StringItem index="12" value="Step-Mother"/>
-            <StringItem index="13" value="Step-Brother"/>
-            <StringItem index="14" value="Step-Sister"/>
-            <StringItem index="15" value="Half-Brother"/>
-            <StringItem index="16" value="Half-Sister"/>
-            <StringItem index="17" value="Son"/>
-            <StringItem index="18" value="Daughter"/>
-            <StringItem index="19" value="Grand-son"/>
-            <StringItem index="20" value="Grand-daughter"/>
-            <StringItem index="21" value="Great Grand-son"/>
-            <StringItem index="22" value="Great Grand-daughter"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox13">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="23">
-            <StringItem index="0" value="Father"/>
-            <StringItem index="1" value="Mother"/>
-            <StringItem index="2" value="Brother"/>
-            <StringItem index="3" value="Sister"/>
-            <StringItem index="4" value="Grand-mother"/>
-            <StringItem index="5" value="Grand-father"/>
-            <StringItem index="6" value="Aunt"/>
-            <StringItem index="7" value="Uncle"/>
-            <StringItem index="8" value="Cousin"/>
-            <StringItem index="9" value="Nephew"/>
-            <StringItem index="10" value="Niece"/>
-            <StringItem index="11" value="Step-Father"/>
-            <StringItem index="12" value="Step-Mother"/>
-            <StringItem index="13" value="Step-Brother"/>
-            <StringItem index="14" value="Step-Sister"/>
-            <StringItem index="15" value="Half-Brother"/>
-            <StringItem index="16" value="Half-Sister"/>
-            <StringItem index="17" value="Son"/>
-            <StringItem index="18" value="Daughter"/>
-            <StringItem index="19" value="Grand-son"/>
-            <StringItem index="20" value="Grand-daughter"/>
-            <StringItem index="21" value="Great Grand-son"/>
-            <StringItem index="22" value="Great Grand-daughter"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JButton" name="pictureBtn1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add picture"/>
@@ -795,46 +401,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn5ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add picture"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add picture"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add picture"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add picture"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton10">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add picture"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton12">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add picture"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton13">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add picture"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton14">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add picture"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="nextFrame">
       <Properties>
