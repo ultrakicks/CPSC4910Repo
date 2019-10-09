@@ -14,6 +14,7 @@ import java.io.ObjectOutputStream;
 import java.util.*;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import java.net.URLDecoder;
 
 /**
  *
@@ -507,7 +508,7 @@ public class SetupFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField13ActionPerformed
 
     private void nextFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameActionPerformed
-        SetupFrame obj = new SetupFrame();
+        /*SetupFrame obj = new SetupFrame();
         obj.serializeFamilyMember(fm1);
         obj.serializeFamilyMember(fm2);
         
@@ -554,13 +555,37 @@ public class SetupFrame extends javax.swing.JFrame {
         } catch(IOException ex) {
             System.out.println("IOException is caught.");
         }***/
+        Properties prop = new Properties();
         
+        try {              
+            // Create a list for each family member attribute
+            String[] names_list     = {fm1.name, fm2.name, fm3.name, fm4.name, fm5.name};
+            String[] relations_list = {fm1.relation, fm2.relation, fm3.relation, fm4.relation, fm5.relation};
+            String[] file_path_list = {fm1.filePath, fm2.filePath, fm3.filePath, fm4.filePath, fm5.filePath};
+            
+            // Add each family member to the config file here
+            for(int i = 0; i < names_list.length; i++) {
+                prop.setProperty("name" + i, names_list[i]);
+                prop.setProperty("relation" + i, relations_list[i]);
+                prop.setProperty("photo_directory" + i, file_path_list[i]);
+                System.out.println("Adding to config file... " + "Name: "
+                        + names_list[i] + " Relation: " + relations_list[i] 
+                        +" File Path:" + file_path_list[i]);
+                
+                //save properties to confiuration file
+                prop.store(new FileOutputStream("C:\\Users\\Brandon\\Desktop\\CPSC4910Repo\\config.properties"), null);
+            }
+        } 
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
         System.out.println(fatherCount);
         System.out.println(motherCount);
         
-         MainMenuFrame mainFrame = new MainMenuFrame();
-         mainFrame.setVisible(true);
-         this.dispose();
+        MainMenuFrame mainFrame = new MainMenuFrame();
+        mainFrame.setVisible(true);
+        this.dispose();
         
          
          //commented out for now
@@ -572,7 +597,6 @@ public class SetupFrame extends javax.swing.JFrame {
             mainFrame.setVisible(true);
             this.dispose();
         } ***/
-        
         
     }//GEN-LAST:event_nextFrameActionPerformed
 
