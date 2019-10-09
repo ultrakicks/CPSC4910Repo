@@ -555,14 +555,15 @@ public class SetupFrame extends javax.swing.JFrame {
         } catch(IOException ex) {
             System.out.println("IOException is caught.");
         }***/
+        
         Properties prop = new Properties();
         
-        try {              
-            // Create a list for each family member attribute
-            String[] names_list     = {fm1.name, fm2.name, fm3.name, fm4.name, fm5.name};
-            String[] relations_list = {fm1.relation, fm2.relation, fm3.relation, fm4.relation, fm5.relation};
-            String[] file_path_list = {fm1.filePath, fm2.filePath, fm3.filePath, fm4.filePath, fm5.filePath};
-            
+        // Create a list for each family member attribute
+        String[] names_list     = {fm1.name, fm2.name, fm3.name, fm4.name, fm5.name};
+        String[] relations_list = {fm1.relation, fm2.relation, fm3.relation, fm4.relation, fm5.relation};
+        String[] file_path_list = {fm1.filePath, fm2.filePath, fm3.filePath, fm4.filePath, fm5.filePath};
+        
+        try {             
             // Add each family member to the config file here
             for(int i = 0; i < names_list.length; i++) {
                 prop.setProperty("name" + i, names_list[i]);
@@ -573,7 +574,7 @@ public class SetupFrame extends javax.swing.JFrame {
                         +" File Path:" + file_path_list[i]);
                 
                 //save properties to confiuration file
-                prop.store(new FileOutputStream("C:\\Users\\Brandon\\Desktop\\CPSC4910Repo\\config.properties"), null);
+                prop.store(new FileOutputStream("config.properties"), null);
             }
         } 
         catch (IOException ex) {
