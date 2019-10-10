@@ -5,6 +5,7 @@
  */
 package com.mycompany.memoryimprovementgame;
 
+
 /**
  *
  * @author matt
@@ -12,7 +13,11 @@ package com.mycompany.memoryimprovementgame;
 public class Game {
     
     public static void Main(String[] args) {
+        Sound();
         
     }
     
+    
 }
+
+
