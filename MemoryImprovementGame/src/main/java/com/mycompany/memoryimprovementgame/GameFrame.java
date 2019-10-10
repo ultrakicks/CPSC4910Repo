@@ -4,13 +4,26 @@
  * and open the template in the editor.
  */
 package com.mycompany.memoryimprovementgame;
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.Desktop;
+import java.awt.Graphics;
+import java.awt.event.*;
+import java.io.*;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.*;
+import javax.swing.*;
+
 
 /**
  *
  * @author matt
  */
 public class GameFrame extends javax.swing.JFrame {
-
+    public static Clip clip;
     /**
      * Creates new form GameFrame
      */
@@ -98,6 +111,24 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    public static void Sound() {
+		try {
+                    File file = new File("test.mp3");
+                    AudioInputStream ais = AudioSystem.getAudioInputStream(GameFrame.class.getResource("" + file));
+                    clip = AudioSystem.getClip();
+                    clip.open(ais);
+                    FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                    gainControl.setValue(-12.0f); //lowers the volume by 12db
+                    clip.loop(clip.LOOP_CONTINUOUSLY);              	
+
+		} 
+
+                catch (Exception e) {
+			e.printStackTrace();
+		}
+        }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton returnToMain;
