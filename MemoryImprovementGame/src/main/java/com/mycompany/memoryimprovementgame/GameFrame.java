@@ -115,7 +115,7 @@ public class GameFrame extends javax.swing.JFrame {
     public static void Sound() {
 		try {
                     File file = new File("test.mp3");
-                    AudioInputStream ais = AudioSystem.getAudioInputStream(GameFrame.class.getResource("" + file));
+                    AudioInputStream ais = AudioSystem.getAudioInputStream(GameFrame.class.getResource("/resources/" + file));
                     clip = AudioSystem.getClip();
                     clip.open(ais);
                     FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
