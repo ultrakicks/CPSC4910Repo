@@ -38,7 +38,9 @@ public class SetupFrame extends javax.swing.JFrame {
      * Creates new form SetupFrame
      */
     public SetupFrame() {
+        System.out.println("Initializing Componenets...");
         initComponents();
+        System.out.println("Done Initializing Componenets!");
     }
 
     /**
