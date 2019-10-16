@@ -11,12 +11,17 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Properties;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author matt
+ * @authors: Matt Kelley & Brandon Hough
  */
 public class SetupFrame extends javax.swing.JFrame {
 
@@ -479,6 +484,23 @@ public class SetupFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_relationBox5ActionPerformed
 
+    public static void playSound() {
+        System.out.println("Being playing sound...");
+        try {
+            String audioFilePath = "resources/background_music.wav"
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            Clip audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -505,6 +527,7 @@ public class SetupFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(SetupFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        playSound();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
