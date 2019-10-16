@@ -26,12 +26,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="startGame" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="settingsButton" max="32767" attributes="0"/>
-                      <Component id="quitGame" min="-2" pref="87" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="startGame" alignment="1" max="32767" attributes="0"/>
+                  <Component id="settingsButton" alignment="1" max="32767" attributes="0"/>
+                  <Component id="quitGame" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="245" max="32767" attributes="0"/>
           </Group>

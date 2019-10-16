@@ -308,55 +308,9 @@ public class SetupFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_nameField5ActionPerformed
 
     private void nextFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameActionPerformed
-        /*SetupFrame obj = new SetupFrame();
-        obj.serializeFamilyMember(fm1);
-        obj.serializeFamilyMember(fm2);
-        
-        try {
-            FileOutputStream file = new FileOutputStream(configFile);
-            ObjectOutputStream out = new ObjectOutputStream(file);
-            out.writeObject(fm1);
-            out.writeObject(fm2);
-        } catch(IOException ex) {
-            ex.printStackTrace();
-        }
-        
-        try {
-            FileInputStream fis = new FileInputStream("config.ser");
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        while(fis.available() > 0) {
-            try {
-                Object rper = ois.readObject();
-                JOptionPane.showMessageDialog(null, "Name: " + rper, "Saved Persons", JOptionPane.INFORMATION_MESSAGE);
-            } catch(ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        
-            
-        } catch(IOException ex) {
-            ex.printStackTrace();
-        }
-        
-        /***try {
-            FileOutputStream file = new FileOutputStream(configFile);
-            ObjectOutputStream out = new ObjectOutputStream(file);
-            
-            fmArry.add(fm1);
-            fmArry.add(fm2);
-            fmArry.add(fm3);
-            fmArry.add(fm4);
-            fmArry.add(fm5);
-            
-            out.writeObject(fmArry);
-            out.close();
-            file.close();
-            
-        } catch(IOException ex) {
-            System.out.println("IOException is caught.");
-        }***/
-        
-        Properties prop = new Properties();
+        Properties propNames = new Properties();
+        Properties propRelations = new Properties();
+        Properties propFilePath = new Properties();
         
         // Create a list for each family member attribute
         String[] names_list     = {fm1.name, fm2.name, fm3.name, fm4.name, fm5.name};
@@ -366,15 +320,25 @@ public class SetupFrame extends javax.swing.JFrame {
         try {             
             // Add each family member to the config file here
             for(int i = 0; i < names_list.length; i++) {
-                prop.setProperty("name" + i, names_list[i]);
-                prop.setProperty("relation" + i, relations_list[i]);
-                prop.setProperty("photo_directory" + i, file_path_list[i]);
-                System.out.println("Adding to config file... " + "Name: "
-                        + names_list[i] + " Relation: " + relations_list[i] 
-                        +" File Path:" + file_path_list[i]);
+                propNames.setProperty("name" + i, names_list[i]);
+                System.out.println("Adding to config file... " + "Name: " + names_list[i]);
                 
                 //save properties to configuration file
-                prop.store(new FileOutputStream("config.properties"), null);
+                propNames.store(new FileOutputStream("namesconfig.properties"), null);
+            }
+            for(int i = 0; i < relations_list.length; i++) {
+                propRelations.setProperty("relation" + i, relations_list[i]);
+                System.out.println("Adding to config file... " + " Relation: " + relations_list[i]);
+                
+                //save properties to configuration file
+                propRelations.store(new FileOutputStream("relationsconfig.properties"), null);
+            }
+            for(int i = 0; i < file_path_list.length; i++) {
+                propFilePath.setProperty("photo_directory" + i, file_path_list[i]);
+                System.out.println("Adding to config file... " + " File Path:" + file_path_list[i]);
+                
+                //save properties to configuration file
+                propFilePath.store(new FileOutputStream("filepathconfig.properties"), null);
             }
         } 
         catch (IOException ex) {
@@ -456,8 +420,8 @@ public class SetupFrame extends javax.swing.JFrame {
         File file = fc.getSelectedFile();
         filePath = file.getAbsolutePath();
         
-        fm5.name = nameField1.getText();
-        fm5.relation = relationBox1.getSelectedItem().toString();
+        fm5.name = nameField5.getText();
+        fm5.relation = relationBox5.getSelectedItem().toString();
         fm5.filePath = filePath;        
     }//GEN-LAST:event_pictureBtn5ActionPerformed
 
