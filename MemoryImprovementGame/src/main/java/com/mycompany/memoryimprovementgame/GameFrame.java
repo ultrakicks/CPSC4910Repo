@@ -29,6 +29,7 @@ public class GameFrame extends javax.swing.JFrame {
     public ArrayList<String> names = new ArrayList<>();
     public ArrayList<String> relations = new ArrayList<>();
     public ArrayList<String> filePaths = new ArrayList<>();
+    public ArrayList<JLabel> images = new ArrayList<>();
     /**
      * Creates new form GameFrame
      */
@@ -136,6 +137,21 @@ public class GameFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        
+        for (int i = 0; i <= filePaths.size(); i++) {
+            images.add(new JLabel());
+        }
+        
+        for (int i = 0; i <= filePaths.size(); i++) {
+            ImageIcon icon = new ImageIcon(getClass().getResource(filePaths.get(i)));
+            images.get(i).setIcon(icon);
+        }
+        
+        JPanel p = new JPanel();
+        for (JLabel j : images) {
+            p.add(j);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
