@@ -5,12 +5,24 @@
  */
 package com.mycompany.memoryimprovementgame;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Properties;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author matt
  */
 public class MainMenuFrame extends javax.swing.JFrame {
 
+    
+    
+    
     /**
      * Creates new form MainMenuFrame
      */
@@ -83,8 +95,8 @@ public class MainMenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameActionPerformed
-        GameFrame gameFrame = new GameFrame();
-        gameFrame.setVisible(true);
+        Game game = new Game();
+        game.startGame();
         this.dispose();
     }//GEN-LAST:event_startGameActionPerformed
 

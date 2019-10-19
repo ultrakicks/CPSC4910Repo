@@ -26,10 +26,7 @@ import javax.swing.*;
  */
 public class GameFrame extends javax.swing.JFrame {
     public static Clip clip;
-    public ArrayList<String> names = new ArrayList<>();
-    public ArrayList<String> relations = new ArrayList<>();
-    public ArrayList<String> filePaths = new ArrayList<>();
-    public ArrayList<JLabel> images = new ArrayList<>();
+    
     /**
      * Creates new form GameFrame
      */
@@ -47,7 +44,6 @@ public class GameFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         returnToMain = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,13 +51,6 @@ public class GameFrame extends javax.swing.JFrame {
         returnToMain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnToMainActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -73,17 +62,11 @@ public class GameFrame extends javax.swing.JFrame {
                 .addContainerGap(735, Short.MAX_VALUE)
                 .addComponent(returnToMain)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(352, 352, 352)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(224, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(210, 210, 210)
+                .addContainerGap(466, Short.MAX_VALUE)
                 .addComponent(returnToMain)
                 .addContainerGap())
         );
@@ -96,63 +79,6 @@ public class GameFrame extends javax.swing.JFrame {
         mainFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_returnToMainActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //reads in names to an array
-        try (InputStream input = new FileInputStream("namesconfig.properties")) {
-            Properties propNames = new Properties();
-            
-            //load the config file
-            propNames.load(input);
-                       
-            propNames.values().forEach(x -> names.add(x.toString()));
-            
-            System.out.print(names);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        //reads in relations to an array
-        try (InputStream input = new FileInputStream("relationsconfig.properties")) {
-            Properties propRelations = new Properties();
-            
-            //load the config file
-            propRelations.load(input);
-            
-            propRelations.values().forEach(x -> relations.add(x.toString()));
-            
-            System.out.print(relations);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        //reads in photo file paths to an array
-        try (InputStream input = new FileInputStream("filepathconfig.properties")) {
-            Properties propFilePaths = new Properties();
-            
-            //load the config file
-            propFilePaths.load(input);
-            
-            propFilePaths.values().forEach(x -> filePaths.add(x.toString()));
-            
-            System.out.print(filePaths);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        
-        for (int i = 0; i <= filePaths.size(); i++) {
-            images.add(new JLabel());
-        }
-        
-        for (int i = 0; i <= filePaths.size(); i++) {
-            ImageIcon icon = new ImageIcon(getClass().getResource(filePaths.get(i)));
-            images.get(i).setIcon(icon);
-        }
-        
-        JPanel p = new JPanel();
-        for (JLabel j : images) {
-            p.add(j);
-        }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,7 +134,6 @@ public class GameFrame extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton returnToMain;
     // End of variables declaration//GEN-END:variables
 }
