@@ -5,6 +5,7 @@
  */
 package com.mycompany.memoryimprovementgame;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -88,9 +89,16 @@ public class Game {
             p.add(images.get(i));
         }
         
+        File imageTest = new File("E:/Pictures/Angelarium/Ananiel.jpg");
+        ImageIcon testImg = new ImageIcon(imageTest);
+        JLabel img = new JLabel();
+        img.setIcon(testImg);
+        p.add(img);
+        
         JFrame game = new JFrame();
         game.add(p);
         game.setVisible(true);
+        System.out.println(filePaths);
     }
     
     
