@@ -45,7 +45,8 @@ public class Game {
                        
             propNames.values().forEach(x -> names.add(x.toString()));
             
-            System.out.print(names);
+            System.out.print("Names: " + names);
+            System.out.println("");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -58,7 +59,8 @@ public class Game {
             
             propRelations.values().forEach(x -> relations.add(x.toString()));
             
-            System.out.print(relations);
+            System.out.print("Relations: " + relations);
+            System.out.println("");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -71,7 +73,8 @@ public class Game {
             
             propFilePaths.values().forEach(x -> filePaths.add(x.toString()));
             
-            System.out.print(filePaths);
+            System.out.print("File Paths: " + filePaths);
+            System.out.println("");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
