@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -90,9 +91,11 @@ public class Game {
             p.add(images.get(i));
         }
         
+        /*
         JPanel question = new JPanel();
         JLabel testQ = new JLabel("CLICK ON YOUR MOTHER MY DUDE");
         question.add(testQ);
+        */
         
         
         /*
@@ -103,11 +106,17 @@ public class Game {
         p.add(img);
         */
         
+        // Get a random relation from the array list of relations
+        Random rand = new Random();
+        int randomInt = rand.nextInt(relations.size());
+        String random_relation = relations.get(randomInt);
+        System.out.println("Random Relation: " + random_relation);
+        
         JFrame game = new JFrame();
-        game.setPreferredSize(new Dimension(1200, 1200));
+        game.setPreferredSize(new Dimension(1200, 1000));
         game.pack();
         game.setLocationRelativeTo(null);
-        game.add(question);
+        //game.add(question);
         game.add(p);
         game.setVisible(true);
         System.out.println(filePaths);
