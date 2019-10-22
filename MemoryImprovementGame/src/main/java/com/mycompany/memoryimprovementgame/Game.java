@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author matt
+ * @author Matt and Brandon
  */
 public class Game {
 
