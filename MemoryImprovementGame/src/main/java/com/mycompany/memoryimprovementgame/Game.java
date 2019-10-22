@@ -5,15 +5,16 @@
  */
 package com.mycompany.memoryimprovementgame;
 
-import java.io.File;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -26,10 +27,9 @@ public class Game {
     public static ArrayList<String> names = new ArrayList<>();
     public static ArrayList<String> relations = new ArrayList<>();
     public static ArrayList<String> filePaths = new ArrayList<>();
-    public static ArrayList<JLabel> images = new ArrayList<>();
+    public static ArrayList<JButton> images = new ArrayList<>();
     
     public static void Main(String[] args) {
-        
         
         
     }
@@ -76,7 +76,7 @@ public class Game {
         }
         
         for (int i = 0; i < filePaths.size(); i++) {
-            images.add(new JLabel());
+            images.add(new JButton());
         }
         
         for (int i = 0; i < filePaths.size(); i++) {
@@ -84,21 +84,34 @@ public class Game {
             images.get(i).setIcon(new ImageIcon(filePaths.get(i).toString()));
         }
         
+        GridLayout layout = new GridLayout(2, 3);
         JPanel p = new JPanel();
         for (int i = 0; i < images.size(); i++) {
             p.add(images.get(i));
         }
         
-        File imageTest = new File("E:/Pictures/Angelarium/Ananiel.jpg");
+        JPanel question = new JPanel();
+        JLabel testQ = new JLabel("CLICK ON YOUR MOTHER MY DUDE");
+        question.add(testQ);
+        
+        
+        /*
+        File imageTest = new File("D:\\wallpapers\\242_-_3sq9tqr.jpg");
         ImageIcon testImg = new ImageIcon(imageTest);
-        JLabel img = new JLabel();
+        JButton img = new JButton();
         img.setIcon(testImg);
         p.add(img);
+        */
         
         JFrame game = new JFrame();
+        game.setPreferredSize(new Dimension(1200, 1200));
+        game.pack();
+        game.setLocationRelativeTo(null);
+        game.add(question);
         game.add(p);
         game.setVisible(true);
         System.out.println(filePaths);
+        
     }
     
     
