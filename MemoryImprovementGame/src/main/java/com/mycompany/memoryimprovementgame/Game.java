@@ -6,6 +6,7 @@
 package com.mycompany.memoryimprovementgame;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -89,18 +91,11 @@ public class Game {
         }
         
         GridLayout layout = new GridLayout(2, 3);
-        JPanel p = new JPanel();
+        JPanel picturePanel = new JPanel();
         for (int i = 0; i < images.size(); i++) {
-            p.add(images.get(i));
+            picturePanel.add(images.get(i));
         }
-        
-        /*
-        JPanel question = new JPanel();
-        JLabel testQ = new JLabel("CLICK ON YOUR MOTHER MY DUDE");
-        question.add(testQ);
-        */
-        
-        
+         
         /*
         File imageTest = new File("D:\\wallpapers\\242_-_3sq9tqr.jpg");
         ImageIcon testImg = new ImageIcon(imageTest);
@@ -115,12 +110,21 @@ public class Game {
         String random_relation = relations.get(randomInt);
         System.out.println("Random Relation: " + random_relation);
         
+        // Add question prompt to a JPanel
+        JPanel questionPanel = new JPanel();
+        JLabel question = new JLabel("Click on your " + random_relation);
+        question.setFont(new Font("Comic Sans", Font.PLAIN, 50));
+        questionPanel.add(question);
+        
+        
         JFrame game = new JFrame();
         game.setPreferredSize(new Dimension(1200, 1000));
         game.pack();
         game.setLocationRelativeTo(null);
-        //game.add(question);
-        game.add(p);
+        
+        game.add(questionPanel);
+        //game.add(picturePanel);
+        
         game.setVisible(true);
         System.out.println(filePaths);
         
