@@ -8,17 +8,23 @@ package com.mycompany.memoryimprovementgame;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Random;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -35,7 +41,7 @@ public class Game {
 
     }
 
-    public static void startGame() {
+    public void startGame() {
         //reads in names to an array
         try (InputStream input = new FileInputStream("namesconfig.properties")) {
             Properties propNames = new Properties();
@@ -87,19 +93,25 @@ public class Game {
             //ImageIcon icon = new ImageIcon(getClass().getResource(filePaths.get(i).toString()));
             images.get(i).setIcon(new ImageIcon(filePaths.get(i).toString()));
         }
-
-        GridLayout layout = new GridLayout(2, 3);
-        JPanel picturePanel = new JPanel();
-        for (int i = 0; i < images.size(); i++) {
-            picturePanel.add(images.get(i));
-        }
-
+        
+        //create main panel to hold other panels
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        
         // Get a random relation from the array list of relations
         Random rand = new Random();
         int randomInt = rand.nextInt(relations.size());
         String random_relation = relations.get(randomInt);
         System.out.println("Random Relation: " + random_relation);
-
+        
+        GridLayout layout = new GridLayout(2, 3);
+        JPanel picturePanel = new JPanel();
+        
+        //add picture(buttons) to JPanel
+        for (int i = 0; i < images.size(); i++) {
+            picturePanel.add(images.get(i));
+        }
+        
         // Add question prompt to a JPanel
         JPanel questionPanel = new JPanel();
         JLabel question = new JLabel("Click on your " + random_relation);
@@ -111,10 +123,52 @@ public class Game {
         game.pack();
         game.setLocationRelativeTo(null);
 
-        game.add(questionPanel);
-        game.add(picturePanel);
+        //game.add(new TimerPanel());
+        mainPanel.add(questionPanel);
+        mainPanel.add(picturePanel);
+        game.add(mainPanel);
 
         game.setVisible(true);
         System.out.println(filePaths);
+        
+        //start of gamelogic
+        ActionListener listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() instanceof JButton) {
+                    String text = ((JButton) e.getSource()).getText();
+                    JOptionPane.showMessageDialog(null, text);
+                }
+            }
+        };
+        images.addActionListener(listener);
+        
+        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+    
+    public class TimerPanel extends JPanel {
+        Timer timer;
+        int count;
+        
+        public TimerPanel() {
+            //timer set up
+            JLabel time = null;
+            timer = new javax.swing.Timer(500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               count++;
+               if (count < 100000) {
+                   time.setText(Integer.toString(count));
+               } else {
+                   ((javax.swing.Timer) (e.getSource())).stop();
+               }
+            }
+            });
+            timer.setInitialDelay(0);
+            timer.start();
+            JPanel timePanel = new JPanel();
+            timePanel.add(time);
+        }
+         
     }
 }
