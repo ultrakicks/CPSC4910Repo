@@ -96,6 +96,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameActionPerformed
         Game game = new Game();
+        System.out.println("Starting game...");
         game.startGame();
         this.dispose();
     }//GEN-LAST:event_startGameActionPerformed
