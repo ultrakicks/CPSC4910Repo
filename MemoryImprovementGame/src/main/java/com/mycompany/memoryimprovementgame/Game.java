@@ -14,6 +14,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 import javax.swing.BoxLayout;
@@ -36,6 +39,8 @@ public class Game {
     public static ArrayList<String> relations = new ArrayList<>();
     public static ArrayList<String> filePaths = new ArrayList<>();
     public static ArrayList<JButton> images = new ArrayList<>();
+    public static ArrayList<String> random_relation = new ArrayList<>();
+    public static int relationCount = 0;
 
     public static void Main(String[] args) {
 
@@ -87,6 +92,7 @@ public class Game {
 
         for (int i = 0; i < filePaths.size(); i++) {
             images.add(new JButton());
+            images.get(i).setActionCommand(relations.get(i));
         }
 
         for (int i = 0; i < filePaths.size(); i++) {
@@ -98,12 +104,15 @@ public class Game {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         
-        // Get a random relation from the array list of relations
-        Random rand = new Random();
-        int randomInt = rand.nextInt(relations.size());
-        String random_relation = relations.get(randomInt);
-        System.out.println("Random Relation: " + random_relation);
-        
+        // Get a random relation from the array list of relations        
+        for (int i = 0; i < relations.size(); i++) {
+            random_relation.add(relations.get(i));
+        }
+        Collections.shuffle(random_relation);
+        for (String f : random_relation) {
+            System.out.println("Random Relation: " + f);
+        }
+                
         GridLayout layout = new GridLayout(2, 3);
         JPanel picturePanel = new JPanel();
         
@@ -114,7 +123,7 @@ public class Game {
         
         // Add question prompt to a JPanel
         JPanel questionPanel = new JPanel();
-        JLabel question = new JLabel("Click on your " + random_relation);
+        JLabel question = new JLabel("Click on your " + random_relation.get(0));
         question.setFont(new Font("Comic Sans", Font.PLAIN, 50));
         questionPanel.add(question);
 
@@ -133,15 +142,39 @@ public class Game {
         
         //start of gamelogic
         ActionListener listener = new ActionListener() {
-            @Override
+            //@Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() instanceof JButton) {
-                    String text = ((JButton) e.getSource()).getText();
-                    JOptionPane.showMessageDialog(null, text);
+                    String text = ((JButton) e.getSource()).getActionCommand();
+                    System.out.println(text);
+                    System.out.println(relationCount);
+                    if (text.equals(random_relation.get(relationCount))) {
+                        if (!(relationCount >= random_relation.size())) {
+                            relationCount++;
+                        }
+                        switch (text) {
+                            case "Father":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                            case "Mother":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                            case "Brother":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                            case "Sister":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                        }
+                    }
+                        
                 }
             }
         };
-        images.addActionListener(listener);
+        
+        for (int i = 0; i < images.size(); i++) {
+            images.get(i).addActionListener(listener);
+        }
         
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
