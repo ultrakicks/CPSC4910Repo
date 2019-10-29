@@ -152,11 +152,11 @@ public class Game {
                     String text = ((JButton) e.getSource()).getActionCommand();
                     System.out.println(text);
                     System.out.println(relationCount);
-                    if (text.equals(random_relation.get(relationCount))) {
-                        if (!(relationCount >= random_relation.size())) {
+                    if (relationCount != random_relation.size() - 1) {
+                        if (text.equals(random_relation.get(relationCount))) {
+                        if (relationCount < random_relation.size() && relationCount != random_relation.size()) {
                             relationCount++;
-                        }
-                        switch (text) {
+                            switch (text) {
                             case "Father":
                                 question.setText("Click on your " + random_relation.get(relationCount));
                                 ((JButton) e.getSource()).setVisible(false);
@@ -169,9 +169,16 @@ public class Game {
                             case "Sister":
                                 question.setText("Click on your " + random_relation.get(relationCount));
                                 ((JButton) e.getSource()).setVisible(false);
+                            }
                         }
-                    }
                         
+                    } 
+                    } else {
+                        WinFrame win = new WinFrame();
+                        win.setVisible(true);
+                        relationCount = 0;
+                        game.dispose();
+                    }   
                 }
             }
         };
