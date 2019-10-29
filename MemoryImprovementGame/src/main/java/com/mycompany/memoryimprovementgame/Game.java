@@ -82,8 +82,10 @@ public class Game {
             //load the config file
             propFilePaths.load(input);
 
-            propFilePaths.values().forEach(x -> filePaths.add(x.toString()));
-
+            for (int i = names.size()-1; i >= 0; i--) {
+                filePaths.add(propFilePaths.getProperty("photo_directory" + i));
+            }
+            
             System.out.print("File Paths: " + filePaths);
             System.out.println("");
         } catch (IOException ex) {
@@ -94,6 +96,8 @@ public class Game {
             images.add(new JButton());
             images.get(i).setActionCommand(relations.get(i));
         }
+        System.out.println(relations);
+        System.out.println(images);
 
         for (int i = 0; i < filePaths.size(); i++) {
             //ImageIcon icon = new ImageIcon(getClass().getResource(filePaths.get(i).toString()));

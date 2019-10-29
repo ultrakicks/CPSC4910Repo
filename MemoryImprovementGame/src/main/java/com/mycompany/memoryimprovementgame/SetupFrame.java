@@ -362,7 +362,7 @@ public class SetupFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_nextFrameActionPerformed
 
     public void setImageFileFilter() {
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image File", "jpg", "png");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image File", "jpg", "png", "jpeg");
         fc.setFileFilter(filter);
         fc.showSaveDialog(this);
         File file = fc.getSelectedFile();
