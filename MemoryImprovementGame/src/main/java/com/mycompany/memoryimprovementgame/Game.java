@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +20,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -100,7 +106,6 @@ public class Game {
         System.out.println(images);
 
         for (int i = 0; i < filePaths.size(); i++) {
-            //ImageIcon icon = new ImageIcon(getClass().getResource(filePaths.get(i).toString()));
             images.get(i).setIcon(new ImageIcon(filePaths.get(i).toString()));
         }
         
@@ -160,15 +165,95 @@ public class Game {
                             case "Father":
                                 question.setText("Click on your " + random_relation.get(relationCount));
                                 ((JButton) e.getSource()).setVisible(false);
+                                playSound();
                             case "Mother":
                                 question.setText("Click on your " + random_relation.get(relationCount));
                                 ((JButton) e.getSource()).setVisible(false);
+                                playSound();
                             case "Brother":
                                 question.setText("Click on your " + random_relation.get(relationCount));
                                 ((JButton) e.getSource()).setVisible(false);
+                                playSound();
                             case "Sister":
                                 question.setText("Click on your " + random_relation.get(relationCount));
                                 ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Grand-mother":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Grand-father":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Aunt":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Uncle":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Cousin":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Nephew":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Niece":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Step-Father":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Step-Mother":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Step-Brother":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Step-Sister":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Half-Brother":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Half-Sister":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Son":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Daughter":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Grand-son":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Grand-daughter":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Great Grand-son":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            case "Great Grand-daughter":
+                                question.setText("Click on your " + random_relation.get(relationCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
                             }
                         }
                         
@@ -177,7 +262,13 @@ public class Game {
                         WinFrame win = new WinFrame();
                         win.setVisible(true);
                         relationCount = 0;
+                        names.clear();
+                        relations.clear();
+                        filePaths.clear();
+                        images.clear();
+                        random_relation.clear();
                         game.dispose();
+                        playWinSound();
                     }   
                 }
             }
@@ -190,29 +281,37 @@ public class Game {
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     
-    public class TimerPanel extends JPanel {
-        Timer timer;
-        int count;
-        
-        public TimerPanel() {
-            //timer set up
-            JLabel time = null;
-            timer = new javax.swing.Timer(500, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               count++;
-               if (count < 100000) {
-                   time.setText(Integer.toString(count));
-               } else {
-                   ((javax.swing.Timer) (e.getSource())).stop();
-               }
-            }
-            });
-            timer.setInitialDelay(0);
-            timer.start();
-            JPanel timePanel = new JPanel();
-            timePanel.add(time);
+    public static void playSound() {
+        System.out.println("Being playing sound...");
+        try {
+            String audioFilePath = "src/main/resources/correct.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            Clip audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-         
+    }
+
+    public static void playWinSound() {
+        System.out.println("Being playing sound...");
+        try {
+            String audioFilePath = "src/main/resources/win.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            Clip audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

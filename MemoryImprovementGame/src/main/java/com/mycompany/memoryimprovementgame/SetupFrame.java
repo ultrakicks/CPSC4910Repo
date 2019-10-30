@@ -487,7 +487,7 @@ public class SetupFrame extends javax.swing.JFrame {
     public static void playSound() {
         System.out.println("Being playing sound...");
         try {
-            String audioFilePath = "resources/background_music_.wav";
+            String audioFilePath = "src/main/resources/background_music.wav";
             File audioFile = new File(audioFilePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             AudioFormat format = audioStream.getFormat();

@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class MainMenuFrame extends javax.swing.JFrame {
 
-    public boolean gameRan = false;
+    public static ArrayList<Integer> gameRan = new ArrayList<>();
     
     
     
@@ -96,19 +96,11 @@ public class MainMenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameActionPerformed
-        if (gameRan == false) {
-            Game game = new Game();
-            System.out.println("Starting game...");
-            game.startGame();
-            this.dispose();
-            gameRan = true;
-        } /*else if (gameRan == true) {
-            Game game = new Game();
-            System.out.println("Starting game...");
-            game.startGame();
-            this.dispose();
-        }*/
-        
+        Game game = new Game();
+        System.out.println("Starting game...");
+        game.startGame();
+        this.dispose();
+        gameRan.add(1);      
     }//GEN-LAST:event_startGameActionPerformed
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
