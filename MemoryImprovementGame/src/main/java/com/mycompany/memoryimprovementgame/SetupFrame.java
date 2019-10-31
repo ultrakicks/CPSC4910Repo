@@ -10,13 +10,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.DuplicateFormatFlagsException;
 import java.util.Properties;
+import java.util.logging.Filter;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -306,58 +310,96 @@ public class SetupFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_nameField5ActionPerformed
 
     private void nextFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameActionPerformed
-        Properties propNames = new Properties();
-        Properties propRelations = new Properties();
-        Properties propFilePath = new Properties();
+        boolean run = true;
+        while (run){
+            run = false;
+            Properties propNames = new Properties();
+            Properties propRelations = new Properties();
+            Properties propFilePath = new Properties();
 
-        // Create a list for each family member attribute
-        String[] names_list = {fm1.name, fm2.name, fm3.name, fm4.name, fm5.name};
-        String[] relations_list = {fm1.relation, fm2.relation, fm3.relation, fm4.relation, fm5.relation};
-        String[] file_path_list = {fm1.filePath, fm2.filePath, fm3.filePath, fm4.filePath, fm5.filePath};
+            // Create a list for each family member attribute
+            String[] names_list = {fm1.name, fm2.name, fm3.name, fm4.name, fm5.name};
+            String[] relations_list = {fm1.relation, fm2.relation, fm3.relation, fm4.relation, fm5.relation};
+            String[] file_path_list = {fm1.filePath, fm2.filePath, fm3.filePath, fm4.filePath, fm5.filePath};
 
-        try {
-            // Add each family member to the config file here
-            for (int i = 0; i < names_list.length; i++) {
-                propNames.setProperty("name" + i, names_list[i]);
-                System.out.println("Adding to config file... " + "Name: " + names_list[i]);
+            int mother = 0;
+            int father = 0;
+            int grandmother = 0;
+            int grandfather = 0;
 
-                //save properties to configuration file
-                propNames.store(new FileOutputStream("namesconfig.properties"), null);
+            try {
+                // Add each family member to the config file here
+                for (int i = 0; i < names_list.length; i++) {
+                    propNames.setProperty("name" + i, names_list[i]);
+                    System.out.println("Adding to config file... " + "Name: " + names_list[i]);
+
+                    //save properties to configuration file
+                    propNames.store(new FileOutputStream("namesconfig.properties"), null);
+                }
+                for (int i = 0; i < relations_list.length; i++) {
+                    propRelations.setProperty("relation" + i, relations_list[i]);
+                    System.out.println("Adding to config file... " + " Relation: " + relations_list[i]);
+
+                    //save properties to configuration file
+                    propRelations.store(new FileOutputStream("relationsconfig.properties"), null);
+
+                    if (relations_list[i].equals("Father")){
+                        father++;
+                    }
+                    if (relations_list[i].equals("Mother")){
+                        mother++;
+                    }
+                    if (relations_list[i].equals("Grand-father")){
+                        grandfather++;
+                    }
+                    if (relations_list[i].equals("Grand-mother")){
+                        grandmother++;
+                    }
+                }
+                for (int i = 0; i < file_path_list.length; i++) {
+                    propFilePath.setProperty("photo_directory" + i, file_path_list[i]);
+                    System.out.println("Adding to config file... " + " File Path:" + file_path_list[i]);
+
+                    //save properties to configuration file
+                    propFilePath.store(new FileOutputStream("filepathconfig.properties"), null);
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
-            for (int i = 0; i < relations_list.length; i++) {
-                propRelations.setProperty("relation" + i, relations_list[i]);
-                System.out.println("Adding to config file... " + " Relation: " + relations_list[i]);
 
-                //save properties to configuration file
-                propRelations.store(new FileOutputStream("relationsconfig.properties"), null);
-            }
-            for (int i = 0; i < file_path_list.length; i++) {
-                propFilePath.setProperty("photo_directory" + i, file_path_list[i]);
-                System.out.println("Adding to config file... " + " File Path:" + file_path_list[i]);
+            System.out.println(fatherCount);
+            System.out.println(motherCount);
 
-                //save properties to configuration file
-                propFilePath.store(new FileOutputStream("filepathconfig.properties"), null);
+            System.out.println("the father amount is: " + father);
+            System.out.println("the mother amount is: " + mother);
+            System.out.println("the grandfather amount is: " + grandfather);
+            System.out.println("the grandmother amount is: " + grandmother);
+
+            if (father > 1 || mother > 1){
+                run = true;
+                JOptionPane.showMessageDialog(null, "You cannot have more than one mother or father. Please check the relations and try again.");
+                throw new DuplicateFormatFlagsException("There can only be one father/mother");                
             }
-        } catch (IOException ex) {
-            ex.printStackTrace();
+            if (grandfather > 2 || grandmother > 2){
+                run = true;
+                JOptionPane.showMessageDialog(null, "You cannot have more than two grandmother or grandfather. Please check the relations and try again.");
+                throw new DuplicateFormatFlagsException("There can only be two grandather/grandmother");
+            }
         }
-
-        System.out.println(fatherCount);
-        System.out.println(motherCount);
-
         MainMenuFrame mainFrame = new MainMenuFrame();
-        mainFrame.setVisible(true);
-        this.dispose();
+            mainFrame.setVisible(true);
+            this.dispose();
+            
 
-        //commented out for now
-        /**
-         * ***if (fatherCount != 1 || motherCount != 1) {
-         * JOptionPane.showMessageDialog(null, "You cannot have more than one
-         * mother or father. Please check the relations and try again.",
-         * "Warning", JOptionPane.INFORMATION_MESSAGE); } else { MainMenuFrame
-         * mainFrame = new MainMenuFrame(); mainFrame.setVisible(true);
-         * this.dispose(); } **
-         */
+            //commented out for now
+            /**
+             * ***if (fatherCount != 1 || motherCount != 1) {
+             * JOptionPane.showMessageDialog(null, "You cannot have more than one
+             * mother or father. Please check the relations and try again.",
+             * "Warning", JOptionPane.INFORMATION_MESSAGE); } else { MainMenuFrame
+             * mainFrame = new MainMenuFrame(); mainFrame.setVisible(true);
+             * this.dispose(); } **
+             */
 
     }//GEN-LAST:event_nextFrameActionPerformed
 
@@ -372,116 +414,56 @@ public class SetupFrame extends javax.swing.JFrame {
     private void pictureBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn1ActionPerformed
         setImageFileFilter();
         fm1.name = nameField1.getText();
-        fm1.relation = relationBox1.getSelectedItem().toString();
         fm1.filePath = filePath;
     }//GEN-LAST:event_pictureBtn1ActionPerformed
 
     private void pictureBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn2ActionPerformed
         setImageFileFilter();
         fm2.name = nameField2.getText();
-        fm2.relation = relationBox2.getSelectedItem().toString();
         fm2.filePath = filePath;
     }//GEN-LAST:event_pictureBtn2ActionPerformed
 
     private void pictureBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn3ActionPerformed
         setImageFileFilter();
         fm3.name = nameField3.getText();
-        fm3.relation = relationBox3.getSelectedItem().toString();
         fm3.filePath = filePath;
     }//GEN-LAST:event_pictureBtn3ActionPerformed
 
     private void pictureBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn4ActionPerformed
         setImageFileFilter();
         fm4.name = nameField4.getText();
-        fm4.relation = relationBox4.getSelectedItem().toString();
         fm4.filePath = filePath;
     }//GEN-LAST:event_pictureBtn4ActionPerformed
 
     private void pictureBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureBtn5ActionPerformed
         setImageFileFilter();
         fm5.name = nameField5.getText();
-        fm5.relation = relationBox5.getSelectedItem().toString();
         fm5.filePath = filePath;
     }//GEN-LAST:event_pictureBtn5ActionPerformed
 
     private void relationBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox1ActionPerformed
-        if ("Father".equals(relationBox1.getSelectedItem().toString())) {
-            if (fatherCount == 1) {
-                fatherCount++;
-            } else if (fatherCount > 2) {
-                fatherCount = 1;
-            }
-            memberCount++;
-        } else if ("Mother".equals(relationBox1.getSelectedItem().toString())) {
-            motherCount++;
-            memberCount++;
-        } else {
-            memberCount++;
-        }
+        fm1.relation = relationBox1.getSelectedItem().toString();
+        System.out.println("fm1.relation" + fm1.relation);
     }//GEN-LAST:event_relationBox1ActionPerformed
 
     private void relationBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox2ActionPerformed
-        if ("Father".equals(relationBox2.getSelectedItem().toString())) {
-            if (fatherCount == 1) {
-                fatherCount++;
-            } else {
-                fatherCount = 1;
-            }
-            memberCount++;
-        } else if ("Mother".equals(relationBox2.getSelectedItem().toString())) {
-            motherCount++;
-            memberCount++;
-        } else {
-            memberCount++;
-        }
+        fm2.relation = relationBox2.getSelectedItem().toString();
+        System.out.println("fm2.relation" + fm2.relation);         
     }//GEN-LAST:event_relationBox2ActionPerformed
 
     private void relationBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox3ActionPerformed
-        if ("Father".equals(relationBox3.getSelectedItem().toString())) {
-            if (fatherCount == 1) {
-                fatherCount++;
-            } else {
-                fatherCount = 1;
-            }
-            memberCount++;
-        } else if ("Mother".equals(relationBox3.getSelectedItem().toString())) {
-            motherCount++;
-            memberCount++;
-        } else {
-            memberCount++;
-        }
+        fm3.relation = relationBox3.getSelectedItem().toString();
+        System.out.println("fm3.relation" + fm3.relation);
     }//GEN-LAST:event_relationBox3ActionPerformed
 
     private void relationBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox4ActionPerformed
-        if (relationBox4.getSelectedItem().toString() == "Father") {
-            if (fatherCount == 1) {
-                fatherCount++;
-            } else {
-                fatherCount = 1;
-            }
-            memberCount++;
-        } else if (relationBox4.getSelectedItem().toString() == "Mother") {
-            motherCount++;
-            memberCount++;
-        } else {
-            memberCount++;
-        }
+        fm4.relation = relationBox4.getSelectedItem().toString();
+        System.out.println("fm4.relation" + fm4.relation);
     }//GEN-LAST:event_relationBox4ActionPerformed
 
     private void relationBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox5ActionPerformed
-        if (relationBox5.getSelectedItem().toString() == "Father") {
-            if (fatherCount == 1) {
-                fatherCount++;
-            } else {
-                fatherCount = 1;
-            }
-            memberCount++;
-        } else if (relationBox5.getSelectedItem().toString() == "Mother") {
-            motherCount++;
-            memberCount++;
-        } else {
-            memberCount++;
-        }
+        fm5.relation = relationBox5.getSelectedItem().toString();
+        System.out.println("fm5.relation" + fm5.relation);
     }//GEN-LAST:event_relationBox5ActionPerformed
 
     public static void playSound() {
