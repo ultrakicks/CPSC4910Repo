@@ -26,8 +26,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -46,27 +48,15 @@ public class Game {
     public static ArrayList<String> filePaths = new ArrayList<>();
     public static ArrayList<JButton> images = new ArrayList<>();
     public static ArrayList<String> random_relation = new ArrayList<>();
+    public static ArrayList<String> random_name = new ArrayList<>();
     public static int relationCount = 0;
+    public static int nameCount = 0;
 
     public static void Main(String[] args) {
 
     }
 
     public void startGame() {
-        //reads in names to an array
-        try (InputStream input = new FileInputStream("namesconfig.properties")) {
-            Properties propNames = new Properties();
-
-            //load the config file
-            propNames.load(input);
-
-            propNames.values().forEach(x -> names.add(x.toString()));
-
-            System.out.print("Names: " + names);
-            System.out.println("");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
         //reads in relations to an array
         try (InputStream input = new FileInputStream("relationsconfig.properties")) {
             Properties propRelations = new Properties();
@@ -88,7 +78,7 @@ public class Game {
             //load the config file
             propFilePaths.load(input);
 
-            for (int i = names.size()-1; i >= 0; i--) {
+            for (int i = relations.size()-1; i >= 0; i--) {
                 filePaths.add(propFilePaths.getProperty("photo_directory" + i));
             }
             
@@ -262,7 +252,6 @@ public class Game {
                         WinFrame win = new WinFrame();
                         win.setVisible(true);
                         relationCount = 0;
-                        names.clear();
                         relations.clear();
                         filePaths.clear();
                         images.clear();
@@ -279,6 +268,302 @@ public class Game {
         }
         
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+    
+    public void startNameGame() {
+        //reads in names to an array
+        try (InputStream input = new FileInputStream("namesconfig.properties")) {
+            Properties propNames = new Properties();
+
+            //load the config file
+            propNames.load(input);
+
+            propNames.values().forEach(x -> names.add(x.toString()));
+
+            System.out.print("Names: " + names);
+            System.out.println("");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        //reads in photo file paths to an array
+        try (InputStream input = new FileInputStream("filepathconfig.properties")) {
+            Properties propFilePaths = new Properties();
+
+            //load the config file
+            propFilePaths.load(input);
+
+            for (int i = names.size()-1; i >= 0; i--) {
+                filePaths.add(propFilePaths.getProperty("photo_directory" + i));
+            }
+            
+            System.out.print("File Paths: " + filePaths);
+            System.out.println("");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        for (int i = 0; i < filePaths.size(); i++) {
+            images.add(new JButton());
+            images.get(i).setActionCommand(names.get(i));
+        }
+        System.out.println(names);
+        System.out.println(images);
+
+        for (int i = 0; i < filePaths.size(); i++) {
+            images.get(i).setIcon(new ImageIcon(filePaths.get(i).toString()));
+        }
+        
+        //create main panel to hold other panels
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        
+        // Get a random relation from the array list of relations        
+        for (int i = 0; i < names.size(); i++) {
+            random_name.add(names.get(i));
+        }
+        Collections.shuffle(random_name);
+        for (String f : random_name) {
+            System.out.println("Random Name: " + f);
+        }
+                
+        GridLayout layout = new GridLayout(2, 3);
+        JPanel picturePanel = new JPanel();
+        
+        //add picture(buttons) to JPanel
+        for (int i = 0; i < images.size(); i++) {
+            picturePanel.add(images.get(i));
+        }
+        
+        // Add question prompt to a JPanel
+        JPanel questionPanel = new JPanel();
+        JLabel question = new JLabel("Click on " + random_name.get(0));
+        question.setFont(new Font("Comic Sans", Font.PLAIN, 50));
+        questionPanel.add(question);
+
+        JFrame game = new JFrame();
+        game.setPreferredSize(new Dimension(1200, 1000));
+        game.pack();
+        game.setLocationRelativeTo(null);
+
+        //game.add(new TimerPanel());
+        mainPanel.add(questionPanel);
+        mainPanel.add(picturePanel);
+        game.add(mainPanel);
+
+        game.setVisible(true);
+        System.out.println(filePaths);
+        
+        //start of gamelogic
+        ActionListener listener = new ActionListener() {
+            //@Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() instanceof JButton) {
+                    String text = ((JButton) e.getSource()).getActionCommand();
+                    System.out.println(text);
+                    System.out.println(nameCount);
+                    if (nameCount != random_name.size() - 1) {
+                        if (text.equals(random_name.get(nameCount))) {
+                        if (nameCount < random_name.size() && nameCount != random_name.size()) {
+                            if (text.equals(random_name.get(nameCount))) {
+                                nameCount++;
+                                question.setText("Click on your " + random_name.get(nameCount));
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            }
+                        }
+                        } 
+                    } else {
+                        WinFrame win = new WinFrame();
+                        win.setVisible(true);
+                        nameCount = 0;
+                        names.clear();
+                        filePaths.clear();
+                        images.clear();
+                        random_name.clear();
+                        game.dispose();
+                        playWinSound();
+                    }   
+                }
+            }
+        };
+        
+        for (int i = 0; i < images.size(); i++) {
+            images.get(i).addActionListener(listener);
+        }
+        
+        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+    
+    public void startNameAndRelationGame() {
+        //reads in names to an array
+        try (InputStream input = new FileInputStream("namesconfig.properties")) {
+            Properties propNames = new Properties();
+
+            //load the config file
+            propNames.load(input);
+
+            propNames.values().forEach(x -> names.add(x.toString()));
+
+            System.out.print("Names: " + names);
+            System.out.println("");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        //reads in relations to an array
+        try (InputStream input = new FileInputStream("relationsconfig.properties")) {
+            Properties propRelations = new Properties();
+
+            //load the config file
+            propRelations.load(input);
+
+            for (int i = names.size()-1; i >= 0; i--) {
+                relations.add(propRelations.getProperty("relation" + i));
+            }
+
+            System.out.print("Relations: " + relations);
+            System.out.println("");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        //reads in photo file paths to an array
+        try (InputStream input = new FileInputStream("filepathconfig.properties")) {
+            Properties propFilePaths = new Properties();
+
+            //load the config file
+            propFilePaths.load(input);
+
+            for (int i = names.size()-1; i >= 0; i--) {
+                filePaths.add(propFilePaths.getProperty("photo_directory" + i));
+            }
+            
+            System.out.print("File Paths: " + filePaths);
+            System.out.println("");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        for (int i = 0; i < filePaths.size(); i++) {
+            images.add(new JButton());
+            images.get(i).setActionCommand(names.get(i)+relations.get(i));
+        }
+        System.out.println(names);
+        System.out.println(images);
+
+        for (int i = 0; i < filePaths.size(); i++) {
+            images.get(i).setIcon(new ImageIcon(filePaths.get(i).toString()));
+        }
+        
+        //create main panel to hold other panels
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        
+        // Get a random relation from the array list of relations        
+        for (int i = 0; i < names.size(); i++) {
+            random_name.add(names.get(i));
+        }
+        Collections.shuffle(random_name);
+        for (String f : random_name) {
+            System.out.println("Random Name: " + f);
+        }
+                
+        GridLayout layout = new GridLayout(2, 3);
+        JPanel picturePanel = new JPanel();
+        
+        //add picture(buttons) to JPanel
+        for (int i = 0; i < images.size(); i++) {
+            picturePanel.add(images.get(i));
+        }
+        
+        // Add question prompt to a JPanel
+        JPanel questionPanel = new JPanel();
+        JLabel question = new JLabel("Click on " + random_name.get(0) + " and please select their relation to you." );
+        JComboBox<String> relationBox = new JComboBox<String>();
+        //add available relations to combobox
+        for (int i = 0; i < relations.size(); i++) {
+            relationBox.addItem(relations.get(i));
+        }
+        question.setFont(new Font("Comic Sans", Font.PLAIN, 50));
+        questionPanel.add(question);
+        questionPanel.add(relationBox);
+
+        JFrame game = new JFrame();
+        game.setPreferredSize(new Dimension(1200, 1000));
+        game.pack();
+        game.setLocationRelativeTo(null);
+
+        //game.add(new TimerPanel());
+        mainPanel.add(questionPanel);
+        mainPanel.add(picturePanel);
+        game.add(mainPanel);
+
+        game.setVisible(true);
+        System.out.println(filePaths);
+        
+        //start of gamelogic
+        ActionListener listener = new ActionListener() {
+            //@Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() instanceof JButton) {
+                    String text = ((JButton) e.getSource()).getActionCommand();
+                    System.out.println(random_name.get(nameCount)+relationBox.getSelectedItem().toString());
+                    System.out.println(text);
+                    System.out.println(nameCount);
+                    if (nameCount != random_name.size() - 1) {
+                        if (nameCount < random_name.size() && nameCount != random_name.size()) {
+                            if (text.equals(random_name.get(nameCount)+relationBox.getSelectedItem().toString())) {
+                                nameCount++;
+                                question.setText("Click on " + random_name.get(nameCount) + " and their relation to you.");
+                                ((JButton) e.getSource()).setVisible(false);
+                                playSound();
+                            }
+                        } 
+                    } else {
+                        WinFrame win = new WinFrame();
+                        win.setVisible(true);
+                        nameCount = 0;
+                        names.clear();
+                        relations.clear();
+                        filePaths.clear();
+                        images.clear();
+                        random_name.clear();
+                        game.dispose();
+                        playWinSound();
+                    }   
+                }
+            }
+        };
+        
+        for (int i = 0; i < images.size(); i++) {
+            images.get(i).addActionListener(listener);
+        }
+        
+        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+    
+    public class TimerPanel extends JPanel {
+        Timer timer;
+        int count;
+
+        public TimerPanel() {
+            //timer set up
+            JLabel time = null;
+            timer = new javax.swing.Timer(500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               count++;
+               if (count < 100000) {
+                   time.setText(Integer.toString(count));
+               } else {
+                   ((javax.swing.Timer) (e.getSource())).stop();
+               }
+            }
+            });
+            timer.setInitialDelay(0);
+            timer.start();
+            JPanel timePanel = new JPanel();
+            timePanel.add(time);
+            
+        }
     }
     
     public static void playSound() {

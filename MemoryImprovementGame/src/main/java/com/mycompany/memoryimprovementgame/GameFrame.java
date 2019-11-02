@@ -44,6 +44,10 @@ public class GameFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         returnToMain = new javax.swing.JButton();
+        relationGame = new javax.swing.JButton();
+        nameGame = new javax.swing.JButton();
+        relationAndNameGame = new javax.swing.JButton();
+        everydayObjects = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,19 +58,59 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
 
+        relationGame.setText("Relation Game");
+        relationGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relationGameActionPerformed(evt);
+            }
+        });
+
+        nameGame.setText("Name Game");
+        nameGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameGameActionPerformed(evt);
+            }
+        });
+
+        relationAndNameGame.setText("Relation and Name Game");
+        relationAndNameGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relationAndNameGameActionPerformed(evt);
+            }
+        });
+
+        everydayObjects.setText("Everyday Objects");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(2918, Short.MAX_VALUE)
-                .addComponent(returnToMain)
-                .addContainerGap())
+                .addContainerGap(186, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(returnToMain)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(relationAndNameGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nameGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(relationGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(everydayObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(178, 178, 178))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(1651, Short.MAX_VALUE)
+                .addGap(118, 118, 118)
+                .addComponent(relationGame)
+                .addGap(35, 35, 35)
+                .addComponent(nameGame)
+                .addGap(36, 36, 36)
+                .addComponent(relationAndNameGame)
+                .addGap(34, 34, 34)
+                .addComponent(everydayObjects)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addComponent(returnToMain)
                 .addContainerGap())
         );
@@ -79,6 +123,27 @@ public class GameFrame extends javax.swing.JFrame {
         mainFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_returnToMainActionPerformed
+
+    private void relationGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationGameActionPerformed
+        Game game = new Game();
+        System.out.println("Starting game...");
+        game.startGame();
+        this.dispose();
+    }//GEN-LAST:event_relationGameActionPerformed
+
+    private void relationAndNameGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationAndNameGameActionPerformed
+        Game nameAndRelationGame = new Game();
+        System.out.println("Starting game...");
+        nameAndRelationGame.startNameAndRelationGame();
+        this.dispose();
+    }//GEN-LAST:event_relationAndNameGameActionPerformed
+
+    private void nameGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameGameActionPerformed
+        Game nameGame = new Game();
+        System.out.println("Starting game...");
+        nameGame.startNameGame();
+        this.dispose();
+    }//GEN-LAST:event_nameGameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,6 +199,10 @@ public class GameFrame extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton everydayObjects;
+    private javax.swing.JButton nameGame;
+    private javax.swing.JButton relationAndNameGame;
+    private javax.swing.JButton relationGame;
     private javax.swing.JButton returnToMain;
     // End of variables declaration//GEN-END:variables
 }

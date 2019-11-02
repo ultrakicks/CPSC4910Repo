@@ -18,10 +18,7 @@ import javax.swing.JPanel;
  *
  * @author matt
  */
-public class MainMenuFrame extends javax.swing.JFrame {
-
-    public static ArrayList<Integer> gameRan = new ArrayList<>();
-    
+public class MainMenuFrame extends javax.swing.JFrame {    
     
     
     /**
@@ -96,11 +93,10 @@ public class MainMenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameActionPerformed
-        Game game = new Game();
+        GameFrame game = new GameFrame();
         System.out.println("Starting game...");
-        game.startGame();
+        game.setVisible(true);
         this.dispose();
-        gameRan.add(1);      
     }//GEN-LAST:event_startGameActionPerformed
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
