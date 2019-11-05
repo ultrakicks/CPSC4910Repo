@@ -20,6 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
+import java.util.stream.Collectors;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -366,7 +367,7 @@ public class Game {
                         if (nameCount < random_name.size() && nameCount != random_name.size()) {
                             if (text.equals(random_name.get(nameCount))) {
                                 nameCount++;
-                                question.setText("Click on your " + random_name.get(nameCount));
+                                question.setText("Click on " + random_name.get(nameCount));
                                 ((JButton) e.getSource()).setVisible(false);
                                 playSound();
                             }
@@ -478,11 +479,14 @@ public class Game {
         JPanel questionPanel = new JPanel();
         JLabel question = new JLabel("Click on " + random_name.get(0) + " and please select their relation to you." );
         JComboBox<String> relationBox = new JComboBox<String>();
+        List<String> listWithoutDuplicates = relations.stream().distinct().collect(Collectors.toList());
+        relationBox.setPreferredSize(new Dimension(300, 40));
+        relationBox.setFont(new Font("Comic Sans", Font.PLAIN, 35));
         //add available relations to combobox
-        for (int i = 0; i < relations.size(); i++) {
-            relationBox.addItem(relations.get(i));
+        for (int i = 0; i < listWithoutDuplicates.size(); i++) {
+            relationBox.addItem(listWithoutDuplicates.get(i));
         }
-        question.setFont(new Font("Comic Sans", Font.PLAIN, 50));
+        question.setFont(new Font("Comic Sans", Font.PLAIN, 35));
         questionPanel.add(question);
         questionPanel.add(relationBox);
 
@@ -569,7 +573,7 @@ public class Game {
     public static void playSound() {
         System.out.println("Being playing sound...");
         try {
-            String audioFilePath = "src/main/resources/correct.wav";
+            String audioFilePath = "resources/correct.wav";
             File audioFile = new File(audioFilePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             AudioFormat format = audioStream.getFormat();
@@ -586,7 +590,7 @@ public class Game {
     public static void playWinSound() {
         System.out.println("Being playing sound...");
         try {
-            String audioFilePath = "src/main/resources/win.wav";
+            String audioFilePath = "resources/win.wav";
             File audioFile = new File(audioFilePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             AudioFormat format = audioStream.getFormat();
