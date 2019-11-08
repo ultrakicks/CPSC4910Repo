@@ -125,7 +125,8 @@ public class SettingsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_resetConfigActionPerformed
 
     private void musicSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicSelectActionPerformed
-        // TODO add your handling code here:
+        musicSelector music = new musicSelector();
+        music.setVisible(true);
     }//GEN-LAST:event_musicSelectActionPerformed
 
     /**

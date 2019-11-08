@@ -18,6 +18,9 @@ import javax.sound.sampled.DataLine;
  */
 public class musicSelector extends javax.swing.JFrame {
 
+    public static Clip audioClip;
+    public boolean clipRunning = false;
+
     /**
      * Creates new form musicSelector
      */
@@ -43,7 +46,7 @@ public class musicSelector extends javax.swing.JFrame {
         beetles = new javax.swing.JButton();
         vanMorrison = new javax.swing.JButton();
         bobSeger = new javax.swing.JButton();
-        lynardSkynyrd = new javax.swing.JButton();
+        lynyrdSkynyrd = new javax.swing.JButton();
         sisterSledge = new javax.swing.JButton();
         villagePeople = new javax.swing.JButton();
         ericClapton = new javax.swing.JButton();
@@ -52,6 +55,11 @@ public class musicSelector extends javax.swing.JFrame {
 
         backBtn.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         sixtiesLbl.setText("60s");
 
@@ -79,18 +87,53 @@ public class musicSelector extends javax.swing.JFrame {
         });
 
         beetles.setText("Twist & Shout - Beetles");
+        beetles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                beetlesActionPerformed(evt);
+            }
+        });
 
         vanMorrison.setText("Brown Eyed Girl - Van Morrison");
+        vanMorrison.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vanMorrisonActionPerformed(evt);
+            }
+        });
 
         bobSeger.setText("Old Time Rock & Roll - Bob Seger");
+        bobSeger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bobSegerActionPerformed(evt);
+            }
+        });
 
-        lynardSkynyrd.setText("Sweet Home Alabama - Lynard Skynyrd");
+        lynyrdSkynyrd.setText("Sweet Home Alabama - Lynyrd Skynyrd");
+        lynyrdSkynyrd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lynyrdSkynyrdActionPerformed(evt);
+            }
+        });
 
         sisterSledge.setText("We Are Family - Sister Sledge");
+        sisterSledge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sisterSledgeActionPerformed(evt);
+            }
+        });
 
         villagePeople.setText("YMCA - Village People");
+        villagePeople.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                villagePeopleActionPerformed(evt);
+            }
+        });
 
         ericClapton.setText("Wonderful Tonight - Eric Clapton");
+        ericClapton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ericClaptonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,7 +159,7 @@ public class musicSelector extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lynardSkynyrd)
+                                    .addComponent(lynyrdSkynyrd)
                                     .addComponent(sisterSledge)
                                     .addComponent(villagePeople)
                                     .addComponent(ericClapton)
@@ -150,7 +193,7 @@ public class musicSelector extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bobSeger)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lynardSkynyrd)
+                        .addComponent(lynyrdSkynyrd)
                         .addGap(2, 2, 2)
                         .addComponent(sisterSledge)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,14 +210,18 @@ public class musicSelector extends javax.swing.JFrame {
 
     private void frankSinatraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frankSinatraActionPerformed
         try {
+            if (clipRunning) {
+                audioClip.close();
+            }
             String audioFilePath = "resources/60s/frankSinatra.wav";
             File audioFile = new File(audioFilePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             AudioFormat format = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
-            Clip audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip = (Clip) AudioSystem.getLine(info);
             audioClip.open(audioStream);
             audioClip.start();
+            clipRunning = true;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -183,14 +230,18 @@ public class musicSelector extends javax.swing.JFrame {
 
     private void neilDiamondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neilDiamondActionPerformed
         try {
+            if (clipRunning) {
+                audioClip.close();
+            }
             String audioFilePath = "resources/60s/neilDiamond.wav";
             File audioFile = new File(audioFilePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             AudioFormat format = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
-            Clip audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip = (Clip) AudioSystem.getLine(info);
             audioClip.open(audioStream);
             audioClip.start();
+            clipRunning = true;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -199,19 +250,167 @@ public class musicSelector extends javax.swing.JFrame {
 
     private void otisDayKnightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otisDayKnightsActionPerformed
         try {
+            if (clipRunning) {
+                audioClip.close();
+            }
             String audioFilePath = "resources/60s/otisDayKnights.wav";
             File audioFile = new File(audioFilePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
             AudioFormat format = audioStream.getFormat();
             DataLine.Info info = new DataLine.Info(Clip.class, format);
-            Clip audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip = (Clip) AudioSystem.getLine(info);
             audioClip.open(audioStream);
             audioClip.start();
+            clipRunning = true;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_otisDayKnightsActionPerformed
+
+    private void beetlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beetlesActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/60s/beetles.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_beetlesActionPerformed
+
+    private void vanMorrisonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vanMorrisonActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/60s/vanMorrison.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_vanMorrisonActionPerformed
+
+    private void bobSegerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bobSegerActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/70s/bobSeger.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_bobSegerActionPerformed
+
+    private void lynyrdSkynyrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lynyrdSkynyrdActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/70s/lynyrdSkynyrd.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_lynyrdSkynyrdActionPerformed
+
+    private void sisterSledgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sisterSledgeActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/70s/sisterSledge.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_sisterSledgeActionPerformed
+
+    private void villagePeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_villagePeopleActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/70s/villagePeople.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_villagePeopleActionPerformed
+
+    private void ericClaptonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ericClaptonActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/70s/ericClapton.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_ericClaptonActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,7 +438,7 @@ public class musicSelector extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(musicSelector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -254,7 +453,7 @@ public class musicSelector extends javax.swing.JFrame {
     private javax.swing.JButton bobSeger;
     private javax.swing.JButton ericClapton;
     private javax.swing.JButton frankSinatra;
-    private javax.swing.JButton lynardSkynyrd;
+    private javax.swing.JButton lynyrdSkynyrd;
     private javax.swing.JButton neilDiamond;
     private javax.swing.JButton otisDayKnights;
     private javax.swing.JLabel seventiesLbl;

@@ -46,7 +46,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lynardSkynyrd" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lynyrdSkynyrd" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="sisterSledge" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="villagePeople" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="ericClapton" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -90,7 +90,7 @@
                   <Group type="102" attributes="0">
                       <Component id="bobSeger" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lynardSkynyrd" min="-2" max="-2" attributes="0"/>
+                      <Component id="lynyrdSkynyrd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                       <Component id="sisterSledge" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -114,6 +114,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="sixtiesLbl">
       <Properties>
@@ -153,36 +156,57 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Twist &amp; Shout - Beetles"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="beetlesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vanMorrison">
       <Properties>
         <Property name="text" type="java.lang.String" value="Brown Eyed Girl - Van Morrison"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vanMorrisonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bobSeger">
       <Properties>
         <Property name="text" type="java.lang.String" value="Old Time Rock &amp; Roll - Bob Seger"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bobSegerActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="lynardSkynyrd">
+    <Component class="javax.swing.JButton" name="lynyrdSkynyrd">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sweet Home Alabama - Lynard Skynyrd"/>
+        <Property name="text" type="java.lang.String" value="Sweet Home Alabama - Lynyrd Skynyrd"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lynyrdSkynyrdActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="sisterSledge">
       <Properties>
         <Property name="text" type="java.lang.String" value="We Are Family - Sister Sledge"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sisterSledgeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="villagePeople">
       <Properties>
         <Property name="text" type="java.lang.String" value="YMCA - Village People"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="villagePeopleActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="ericClapton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Wonderful Tonight - Eric Clapton"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ericClaptonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
