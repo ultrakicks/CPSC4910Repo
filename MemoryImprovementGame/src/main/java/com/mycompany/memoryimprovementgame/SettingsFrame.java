@@ -15,6 +15,8 @@ import java.io.FileOutputStream;
  * @author matt
  */
 public class SettingsFrame extends javax.swing.JFrame {
+    
+    public musicSelector music = new musicSelector();
 
     /**
      * Creates new form SettingsFrame
@@ -125,7 +127,6 @@ public class SettingsFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_resetConfigActionPerformed
 
     private void musicSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicSelectActionPerformed
-        musicSelector music = new musicSelector();
         music.setVisible(true);
     }//GEN-LAST:event_musicSelectActionPerformed
 

@@ -409,7 +409,8 @@ public class musicSelector extends javax.swing.JFrame {
     }//GEN-LAST:event_ericClaptonActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        this.setVisible(false);
+        this.dispose();
+        //this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
 
     /**
