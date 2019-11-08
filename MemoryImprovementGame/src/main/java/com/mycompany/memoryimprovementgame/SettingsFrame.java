@@ -33,7 +33,9 @@ public class SettingsFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         returnToMain = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        resetConfig = new javax.swing.JButton();
+        musicSelect = new javax.swing.JButton();
+        muteMusic = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,32 +46,50 @@ public class SettingsFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Reset Configuration");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        resetConfig.setText("Reset Configuration");
+        resetConfig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                resetConfigActionPerformed(evt);
             }
         });
+
+        musicSelect.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        musicSelect.setText("Music Selector");
+        musicSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                musicSelectActionPerformed(evt);
+            }
+        });
+
+        muteMusic.setText("Mute Music");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(182, Short.MAX_VALUE)
+                .addGap(182, 182, 182)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(returnToMain)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(muteMusic, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(musicSelect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(resetConfig, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(155, 155, 155))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(329, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGap(117, 117, 117)
+                .addComponent(musicSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(muteMusic)
+                .addGap(34, 34, 34)
+                .addComponent(resetConfig)
                 .addGap(64, 64, 64)
                 .addComponent(returnToMain)
                 .addContainerGap())
@@ -85,7 +105,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_returnToMainActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void resetConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetConfigActionPerformed
 
         /* Delete the config.ser file*/ 
         String configFilePath = "C:\\Users\\...\\...\\...\\...\\MemoryImprovementGame\\config.ser";
@@ -102,7 +122,11 @@ public class SettingsFrame extends javax.swing.JFrame {
         SetupFrame setupFrame = new SetupFrame();
         setupFrame.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_resetConfigActionPerformed
+
+    private void musicSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicSelectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_musicSelectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,7 +164,9 @@ public class SettingsFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton musicSelect;
+    private javax.swing.JButton muteMusic;
+    private javax.swing.JButton resetConfig;
     private javax.swing.JButton returnToMain;
     // End of variables declaration//GEN-END:variables
 }
