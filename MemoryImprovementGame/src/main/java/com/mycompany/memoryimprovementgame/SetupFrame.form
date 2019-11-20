@@ -24,47 +24,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="relationLbl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
-              <Component id="pictureLbl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nextFrame" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nameField1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="nameField2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="nameField3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="nameField4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="nameField5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="relationBox1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="relationBox2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="relationBox3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="relationBox4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="relationBox5" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="welcomeMsg" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="nextFrame" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="321" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pictureBtn1" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="pictureBtn2" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
@@ -73,6 +43,32 @@
                   <Component id="pictureBtn5" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="welcomeMsg" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="relationBox1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="relationLbl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
+                              <Component id="pictureLbl" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="relationBox2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

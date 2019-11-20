@@ -8,6 +8,7 @@ package com.mycompany.memoryimprovementgame;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
@@ -95,7 +96,10 @@ public class Game {
         System.out.println(images);
 
         for (int i = 0; i < filePaths.size(); i++) {
-            images.get(i).setIcon(new ImageIcon(filePaths.get(i).toString()));
+            ImageIcon icon = new ImageIcon(filePaths.get(i));
+            Image img = icon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img);
+            images.get(i).setIcon(icon);
         }
 
         //create main panel to hold other panels
@@ -309,7 +313,10 @@ public class Game {
         System.out.println(images);
 
         for (int i = 0; i < filePaths.size(); i++) {
-            images.get(i).setIcon(new ImageIcon(filePaths.get(i).toString()));
+            ImageIcon icon = new ImageIcon(filePaths.get(i));
+            Image img = icon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img);
+            images.get(i).setIcon(icon);
         }
 
         //create main panel to hold other panels
@@ -479,7 +486,10 @@ public class Game {
         System.out.println(images);
 
         for (int i = 0; i < filePaths.size(); i++) {
-            images.get(i).setIcon(new ImageIcon(filePaths.get(i).toString()));
+            ImageIcon icon = new ImageIcon(filePaths.get(i));
+            Image img = icon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img);
+            images.get(i).setIcon(icon);
         }
 
         //create main panel to hold other panels

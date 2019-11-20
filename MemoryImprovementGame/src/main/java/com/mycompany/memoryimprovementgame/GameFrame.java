@@ -4,20 +4,11 @@
  * and open the template in the editor.
  */
 package com.mycompany.memoryimprovementgame;
-import java.awt.CardLayout;
-import java.awt.Container;
-import java.awt.Desktop;
-import java.awt.Graphics;
-import java.awt.event.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Properties;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.*;
-import javax.swing.*;
 
 
 /**

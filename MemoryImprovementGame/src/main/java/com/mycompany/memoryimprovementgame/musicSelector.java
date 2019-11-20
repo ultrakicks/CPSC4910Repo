@@ -413,6 +413,10 @@ public class musicSelector extends javax.swing.JFrame {
         //this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
 
+    public void stopMusic() {
+        audioClip.close();
+    }
+    
     /**
      * @param args the command line arguments
      */

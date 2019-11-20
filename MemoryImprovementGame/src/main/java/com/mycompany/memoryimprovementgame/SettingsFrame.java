@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.memoryimprovementgame;
-import java.io.IOException; 
-import java.nio.file.*;
 import java.io.File;
-import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 
 /**
  *
@@ -17,6 +13,7 @@ import java.io.FileOutputStream;
 public class SettingsFrame extends javax.swing.JFrame {
     
     public musicSelector music = new musicSelector();
+    public SetupFrame backgroundMusic = new SetupFrame();
 
     /**
      * Creates new form SettingsFrame
@@ -64,6 +61,11 @@ public class SettingsFrame extends javax.swing.JFrame {
         });
 
         muteMusic.setText("Mute Music");
+        muteMusic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muteMusicActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,8 +130,14 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     private void musicSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicSelectActionPerformed
         music.setVisible(true);
+        backgroundMusic.stopSound();
     }//GEN-LAST:event_musicSelectActionPerformed
 
+    private void muteMusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muteMusicActionPerformed
+        music.stopMusic();
+    }//GEN-LAST:event_muteMusicActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */

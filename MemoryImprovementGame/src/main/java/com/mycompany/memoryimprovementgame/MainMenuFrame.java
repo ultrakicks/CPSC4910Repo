@@ -5,15 +5,6 @@
  */
 package com.mycompany.memoryimprovementgame;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Properties;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 /**
  *
  * @author matt
