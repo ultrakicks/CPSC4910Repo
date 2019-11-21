@@ -55,19 +55,25 @@ public class Game {
     public static int nameCount = 0;
 
     public static void Main(String[] args) {
+    }
 
+    public void createStatsFile() {
+        boolean test = true;
+        while (test) {
+            try {
+                String gameStats = "Game Name , Incorrect Count , Correct Count , Total Count , Compentancy\n";
+                BufferedWriter writer = new BufferedWriter(new FileWriter("stats.txt"));
+                writer.append(gameStats);
+                writer.close();
+                test = false;
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     public void startGame() {
 
-        try {
-            String gameStats = "Game Name , Incorrect Count , Correct Count , Total Count , Compentancy\n";
-            BufferedWriter writer = new BufferedWriter(new FileWriter("stats.txt"));
-            writer.append(gameStats);
-            writer.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
         //reads in relations to an array
         try (InputStream input = new FileInputStream("relationsconfig.properties")) {
             Properties propRelations = new Properties();
@@ -157,10 +163,9 @@ public class Game {
         ActionListener listener = new ActionListener() {
             //@Override
             // variables to store statistics for a user
-            int incorrectSelectionCount = 0;
-            int correctSelectionCount = 0;
-            int totalSelectionCount = 0;
-            double competancy = 0.00;
+            double incorrectSelectionCount = 0.00;
+            double correctSelectionCount = 0.00;
+            double totalSelectionCount = 0.00;
 
             public void actionPerformed(ActionEvent e) {
                 totalSelectionCount++;
@@ -273,15 +278,16 @@ public class Game {
                         //write statistics to the statistics file
                         correctSelectionCount += 1;
                         incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
-                        competancy = (incorrectSelectionCount / correctSelectionCount) * 100;
+                        System.out.println("Incorrect Count (TEST): " + incorrectSelectionCount);
+                        double competancy = Math.round((correctSelectionCount / totalSelectionCount) * 100);
                         System.out.println("Correct Count: " + correctSelectionCount);
-                        System.out.println("Incorrect Count: " + incorrectSelectionCount);
+                        //System.out.println("Incorrect Count: " + incorrectSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
                         System.out.println("Competancy: " + competancy);
 
                         try {
                             String gameStats = "Relation Game / " + incorrectSelectionCount + " / "
-                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy;
+                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy + "%";
                             FileWriter fileWriter = new FileWriter("stats.txt", true);
                             PrintWriter printWriter = new PrintWriter(fileWriter);
                             printWriter.println(gameStats);
@@ -401,9 +407,9 @@ public class Game {
         ActionListener listener = new ActionListener() {
             //@Override
             // variables to store statistics for a user
-            int incorrectSelectionCount = 0;
-            int correctSelectionCount = 0;
-            int totalSelectionCount = 0;
+            double incorrectSelectionCount = 0.00;
+            double correctSelectionCount = 0.00;
+            double totalSelectionCount = 0.00;
             double competancy = 0.00;
 
             public void actionPerformed(ActionEvent e) {
@@ -431,14 +437,14 @@ public class Game {
                         //write statistics to the statistics file
                         correctSelectionCount += 1;
                         incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
-                        competancy = (incorrectSelectionCount / correctSelectionCount) * 100;
+                        double competancy = Math.round((correctSelectionCount / totalSelectionCount) * 100);
                         System.out.println("Correct Count: " + correctSelectionCount);
                         System.out.println("Incorrect Count: " + incorrectSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
                         System.out.println("Competancy: " + competancy);
                         try {
                             String gameStats = "Name Game / " + incorrectSelectionCount + " / "
-                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy;
+                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy + "%";
                             FileWriter fileWriter = new FileWriter("stats.txt", true);
                             PrintWriter printWriter = new PrintWriter(fileWriter);
                             printWriter.println(gameStats);
@@ -586,9 +592,9 @@ public class Game {
         ActionListener listener = new ActionListener() {
             //@Override
             // variables to store statistics for a user
-            int incorrectSelectionCount = 0;
-            int correctSelectionCount = 0;
-            int totalSelectionCount = 0;
+            double incorrectSelectionCount = 0.00;
+            double correctSelectionCount = 0.00;
+            double totalSelectionCount = 0.00;
             double competancy = 0.00;
 
             public void actionPerformed(ActionEvent e) {
@@ -605,14 +611,14 @@ public class Game {
                                 question.setText("Click on " + random_name.get(nameCount) + " and their relation to you.");
                                 ((JButton) e.getSource()).setVisible(false);
                                 playSound();
+                                correctSelectionCount += 1;
                             }
-                            correctSelectionCount += 1;
                         }
                     } else {
                         //write statistics to the statistics file
                         correctSelectionCount += 1;
                         incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
-                        competancy = (incorrectSelectionCount / correctSelectionCount) * 100;
+                        double competancy = Math.round((correctSelectionCount / totalSelectionCount) * 100);
                         System.out.println("Correct Count: " + correctSelectionCount);
                         System.out.println("Incorrect Count: " + incorrectSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
@@ -620,7 +626,7 @@ public class Game {
 
                         try {
                             String gameStats = "Name and Realtion Game / " + incorrectSelectionCount + " / "
-                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy;
+                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy + "%";
                             FileWriter fileWriter = new FileWriter("stats.txt", true);
                             PrintWriter printWriter = new PrintWriter(fileWriter);
                             printWriter.println(gameStats);
