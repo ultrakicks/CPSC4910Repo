@@ -55,23 +55,24 @@ public class Game {
 
     public static void Main(String[] args) {
     }
-    
 
+    public void createStatsFile() {
+        boolean test = true;
+        while (test) {
+            try {
+                String gameStats = "Game Name , Incorrect Count , Correct Count , Total Count , Compentancy\n";
+                BufferedWriter writer = new BufferedWriter(new FileWriter("stats.txt"));
+                writer.append(gameStats);
+                writer.close();
+                test = false;
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 
     public void startGame() {
-        
-        boolean test = true;
-        while(test)
-        try {
-            String gameStats = "Game Name , Incorrect Count , Correct Count , Total Count , Compentancy\n";
-            BufferedWriter writer = new BufferedWriter(new FileWriter("stats.txt"));
-            writer.append(gameStats);
-            writer.close();
-            test = false;
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        
+
         //reads in relations to an array
         try (InputStream input = new FileInputStream("relationsconfig.properties")) {
             Properties propRelations = new Properties();
@@ -611,7 +612,7 @@ public class Game {
                                 playSound();
                                 correctSelectionCount += 1;
                             }
-                        }           
+                        }
                     } else {
                         //write statistics to the statistics file
                         correctSelectionCount += 1;
