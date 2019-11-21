@@ -17,6 +17,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -57,6 +58,15 @@ public class Game {
     }
 
     public void startGame() {
+
+        try {
+            String gameStats = "Game Name , Incorrect Count , Correct Count , Total Count , Compentancy\n";
+            BufferedWriter writer = new BufferedWriter(new FileWriter("stats.txt"));
+            writer.append(gameStats);
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         //reads in relations to an array
         try (InputStream input = new FileInputStream("relationsconfig.properties")) {
             Properties propRelations = new Properties();
@@ -145,7 +155,14 @@ public class Game {
         //start of gamelogic
         ActionListener listener = new ActionListener() {
             //@Override
+            // variables to store statistics for a user
+            int incorrectSelectionCount = 0;
+            int correctSelectionCount = 0;
+            int totalSelectionCount = 0;
+            double competancy = 0.00;
+
             public void actionPerformed(ActionEvent e) {
+                totalSelectionCount++;
                 if (e.getSource() instanceof JButton) {
                     String text = ((JButton) e.getSource()).getActionCommand();
                     System.out.println(text);
@@ -249,9 +266,29 @@ public class Game {
                                         playSound();
                                 }
                             }
-
+                            correctSelectionCount += 1;
                         }
                     } else {
+                        //write statistics to the statistics file
+                        correctSelectionCount += 1;
+                        incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
+                        competancy = (incorrectSelectionCount / correctSelectionCount) * 100;
+                        System.out.println("Correct Count: " + correctSelectionCount);
+                        System.out.println("Incorrect Count: " + incorrectSelectionCount);
+                        System.out.println("Total Selection Count: " + totalSelectionCount);
+                        System.out.println("Competancy: " + competancy);
+
+                        try {
+                            String gameStats = "Relation Game / " + incorrectSelectionCount + " / "
+                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy;
+                            FileWriter fileWriter = new FileWriter("stats.txt", true);
+                            PrintWriter printWriter = new PrintWriter(fileWriter);
+                            printWriter.println(gameStats);
+                            printWriter.close();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
                         WinFrame winRealationsGame = new WinFrame();
                         winRealationsGame.setVisible(true);
                         relationCount = 0;
@@ -362,10 +399,11 @@ public class Game {
         //start of gamelogic
         ActionListener listener = new ActionListener() {
             //@Override
-            // stores statistics of user    
+            // variables to store statistics for a user
             int incorrectSelectionCount = 0;
             int correctSelectionCount = 0;
             int totalSelectionCount = 0;
+            double competancy = 0.00;
 
             public void actionPerformed(ActionEvent e) {
                 totalSelectionCount += 1;
@@ -380,28 +418,30 @@ public class Game {
                                     nameCount++;
                                     question.setText("Click on " + random_name.get(nameCount));
                                     ((JButton) e.getSource()).setVisible(false);
-                                    correctSelectionCount += 1;
-
                                     System.out.println("Correct Count: " + correctSelectionCount);
                                     //System.out.println("Incorrect Count: " + incorrectSelectionCount);
                                     System.out.println("Total Selection Count: " + totalSelectionCount);
                                     playSound();
                                 }
                             }
+                            correctSelectionCount += 1;
                         }
                     } else {
                         //write statistics to the statistics file
                         correctSelectionCount += 1;
                         incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
+                        competancy = (incorrectSelectionCount / correctSelectionCount) * 100;
                         System.out.println("Correct Count: " + correctSelectionCount);
                         System.out.println("Incorrect Count: " + incorrectSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
-
+                        System.out.println("Competancy: " + competancy);
                         try {
-                            String gameStats = "NameGame\t" + incorrectSelectionCount + "\t" + correctSelectionCount + "\t" + totalSelectionCount;
-                            BufferedWriter writer = new BufferedWriter(new FileWriter("statistics.txt"));
-                            writer.append(gameStats);
-                            writer.close();
+                            String gameStats = "Name Game / " + incorrectSelectionCount + " / "
+                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy;
+                            FileWriter fileWriter = new FileWriter("stats.txt", true);
+                            PrintWriter printWriter = new PrintWriter(fileWriter);
+                            printWriter.println(gameStats);
+                            printWriter.close();
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }
@@ -544,7 +584,14 @@ public class Game {
         //start of gamelogic
         ActionListener listener = new ActionListener() {
             //@Override
+            // variables to store statistics for a user
+            int incorrectSelectionCount = 0;
+            int correctSelectionCount = 0;
+            int totalSelectionCount = 0;
+            double competancy = 0.00;
+
             public void actionPerformed(ActionEvent e) {
+                totalSelectionCount += 1;
                 if (e.getSource() instanceof JButton) {
                     String text = ((JButton) e.getSource()).getActionCommand();
                     System.out.println(random_name.get(nameCount) + relationBox.getSelectedItem().toString());
@@ -558,8 +605,29 @@ public class Game {
                                 ((JButton) e.getSource()).setVisible(false);
                                 playSound();
                             }
+                            correctSelectionCount += 1;
                         }
                     } else {
+                        //write statistics to the statistics file
+                        correctSelectionCount += 1;
+                        incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
+                        competancy = (incorrectSelectionCount / correctSelectionCount) * 100;
+                        System.out.println("Correct Count: " + correctSelectionCount);
+                        System.out.println("Incorrect Count: " + incorrectSelectionCount);
+                        System.out.println("Total Selection Count: " + totalSelectionCount);
+                        System.out.println("Competancy: " + competancy);
+
+                        try {
+                            String gameStats = "Name and Realtion Game / " + incorrectSelectionCount + " / "
+                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy;
+                            FileWriter fileWriter = new FileWriter("stats.txt", true);
+                            PrintWriter printWriter = new PrintWriter(fileWriter);
+                            printWriter.println(gameStats);
+                            printWriter.close();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
                         WinFrame winNameAndRelationsGame = new WinFrame();
                         winNameAndRelationsGame.setVisible(true);
                         nameCount = 0;
