@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
@@ -648,6 +649,70 @@ public class Game {
         }
 
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+
+    public void objectsGame() {
+        String[] objs = {"Book", "Pen", "Key", "Umbrella", "Button", "Toothbrush", "Light bulb", "Newspaper", "Alarm Clock", "Comb", "Watch", "Apple", "Telephone", "Soap", "TV", "Bed", "Fork", "Spoon", "Flower", "Shoe", "Paper clip", "Car", "Milk"};
+        String[] objImgs = {"resources/objs/book.png", "resources/objs/pen.png", "resources/objs/key.png", "resources/objs/umbrella.png", "resources/objs/button.png", "resources/objs/toothbrush.png", "resources/objs/lightbulb.png", "resources/objs/newspaper", 
+                            "resources/objs/alarmclock.png", "resources/objs/comb.png", "resources/objs/watch.png", "resources/objs/apple.png", "resources/objs/telephone.png", "resources/objs/soap.png", "resources/objs/tv.png", "resources/objs/bed.png", "resources/objs/fork.png",
+                            "resources/objs/spoon.png", "resources/objs/flower.png", "resources/objs/shoe.png", "resources/objs/paperclip.png", "resources/objs/car.png", "resources/objs/milk.png"};
+        JButton[] objBtn = new JButton[23];
+        
+        //create buttons to match with images
+        for (int i = 0; i < objBtn.length; i++) {
+            objBtn[i] = new JButton();
+            objBtn[i].setText(objs[i]);
+            objBtn[i].setFont(new Font("Comic Sans", Font.PLAIN, 35));
+            objBtn[i].setActionCommand(objs[i]);
+        }
+        
+        //create buttons to hold images
+        for (int i = 0; i < objs.length; i++) {
+            images.add(new JButton());
+            images.get(i).setActionCommand(objs[i]);
+        }
+        //add images to buttons
+        for (int i = 0; i < objs.length; i++) {
+            ImageIcon icon = new ImageIcon(objImgs[i]);
+            Image img = icon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(img);
+            images.get(i).setIcon(icon);
+        }
+
+        //create main panel to hold other panels
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+
+        JPanel btnPanel = new JPanel();
+        //shuffle buttons
+        List<JButton> tmp = Arrays.asList(objBtn);
+        Collections.shuffle(tmp);
+        //add matching buttons to JPanel
+        for(int i = 0; i < objs.length; i++) {
+            btnPanel.add(tmp.get(i));
+        }
+        
+        JPanel picturePanel = new JPanel();
+        //shuffle images
+        Collections.shuffle(images);
+        //add picture(buttons) to JPanel
+        for (int i = 0; i < images.size(); i++) {
+            picturePanel.add(images.get(i));
+        }
+        
+        JFrame game = new JFrame();
+        game.setPreferredSize(new Dimension(1200, 1000));
+        game.pack();
+        game.setLocationRelativeTo(null);
+
+        //game.add(new TimerPanel());
+        mainPanel.add(btnPanel);
+        mainPanel.add(picturePanel);
+        game.add(mainPanel);
+
+        game.setVisible(true);
+        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
     }
 
     public class TimerPanel extends JPanel {

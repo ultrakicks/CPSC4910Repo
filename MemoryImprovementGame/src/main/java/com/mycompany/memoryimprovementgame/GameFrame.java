@@ -71,6 +71,11 @@ public class GameFrame extends javax.swing.JFrame {
         });
 
         everydayObjects.setText("Everyday Objects");
+        everydayObjects.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                everydayObjectsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,6 +141,13 @@ public class GameFrame extends javax.swing.JFrame {
         nameGame.startNameGame();
         this.dispose();
     }//GEN-LAST:event_nameGameActionPerformed
+
+    private void everydayObjectsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_everydayObjectsActionPerformed
+        Game objGame = new Game();
+        System.out.println("Starting game...");
+        objGame.objectsGame();
+        this.dispose();
+    }//GEN-LAST:event_everydayObjectsActionPerformed
 
     /**
      * @param args the command line arguments
