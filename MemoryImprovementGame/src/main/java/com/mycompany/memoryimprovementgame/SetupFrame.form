@@ -34,7 +34,7 @@
                   <Component id="nameField4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="nameField5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="321" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pictureBtn1" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="pictureBtn2" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>

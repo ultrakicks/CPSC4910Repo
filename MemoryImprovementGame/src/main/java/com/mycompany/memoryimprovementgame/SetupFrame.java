@@ -47,10 +47,29 @@ public class SetupFrame extends javax.swing.JFrame {
      * Creates new form SetupFrame
      */
     public SetupFrame() {
-        System.out.println("Initializing Componenets...");
-        initComponents();
-        System.out.println("Done Initializing Componenets!");
-    }
+        // if config files have already been setup, then skip to MainMenuFrame
+        try {
+            File namesFile = File.createTempFile("namesconfig", ".properties");
+            File relationFile = File.createTempFile("relationsconfig", ".properties");
+            File photosFile = File.createTempFile("filepathconfig", ".properties");
+            
+            boolean namesFileExists = namesFile.exists();
+            boolean relationsFileExists = relationFile.exists();
+            boolean photosFileExists = photosFile.exists();
+            
+            System.out.println("Names config exists : " + namesFileExists);
+            System.out.println("Relatons config exists : " + relationsFileExists);
+            System.out.println("Photos config exists: " + photosFileExists);
+
+            if (namesFileExists && relationsFileExists && photosFileExists) {
+                System.out.println("Skipping initial setup screen...");
+                MainMenuFrame mainFrame = new MainMenuFrame();
+                mainFrame.setVisible(true);
+                this.dispose();       
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -307,7 +326,7 @@ public class SetupFrame extends javax.swing.JFrame {
 
     private void nextFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameActionPerformed
         boolean run = true;
-        while (run){
+        while (run) {
             run = false;
             Properties propNames = new Properties();
             Properties propRelations = new Properties();
@@ -339,16 +358,16 @@ public class SetupFrame extends javax.swing.JFrame {
                     //save properties to configuration file
                     propRelations.store(new FileOutputStream("relationsconfig.properties"), null);
 
-                    if (relations_list[i].equals("Father")){
+                    if (relations_list[i].equals("Father")) {
                         father++;
                     }
-                    if (relations_list[i].equals("Mother")){
+                    if (relations_list[i].equals("Mother")) {
                         mother++;
                     }
-                    if (relations_list[i].equals("Grand-father")){
+                    if (relations_list[i].equals("Grand-father")) {
                         grandfather++;
                     }
-                    if (relations_list[i].equals("Grand-mother")){
+                    if (relations_list[i].equals("Grand-mother")) {
                         grandmother++;
                     }
                 }
@@ -371,31 +390,30 @@ public class SetupFrame extends javax.swing.JFrame {
             System.out.println("the grandfather amount is: " + grandfather);
             System.out.println("the grandmother amount is: " + grandmother);
 
-            if (father > 1 || mother > 1){
+            if (father > 1 || mother > 1) {
                 run = true;
                 JOptionPane.showMessageDialog(null, "You cannot have more than one mother or father. Please check the relations and try again.");
-                throw new DuplicateFormatFlagsException("There can only be one father/mother");                
+                throw new DuplicateFormatFlagsException("There can only be one father/mother");
             }
-            if (grandfather > 2 || grandmother > 2){
+            if (grandfather > 2 || grandmother > 2) {
                 run = true;
                 JOptionPane.showMessageDialog(null, "You cannot have more than two grandmother or grandfather. Please check the relations and try again.");
                 throw new DuplicateFormatFlagsException("There can only be two grandather/grandmother");
             }
         }
         MainMenuFrame mainFrame = new MainMenuFrame();
-            mainFrame.setVisible(true);
-            this.dispose();
-            
+        mainFrame.setVisible(true);
+        this.dispose();
 
-            //commented out for now
-            /**
-             * ***if (fatherCount != 1 || motherCount != 1) {
-             * JOptionPane.showMessageDialog(null, "You cannot have more than one
-             * mother or father. Please check the relations and try again.",
-             * "Warning", JOptionPane.INFORMATION_MESSAGE); } else { MainMenuFrame
-             * mainFrame = new MainMenuFrame(); mainFrame.setVisible(true);
-             * this.dispose(); } **
-             */
+        //commented out for now
+        /**
+         * ***if (fatherCount != 1 || motherCount != 1) {
+         * JOptionPane.showMessageDialog(null, "You cannot have more than one
+         * mother or father. Please check the relations and try again.",
+         * "Warning", JOptionPane.INFORMATION_MESSAGE); } else { MainMenuFrame
+         * mainFrame = new MainMenuFrame(); mainFrame.setVisible(true);
+         * this.dispose(); } **
+         */
 
     }//GEN-LAST:event_nextFrameActionPerformed
 
@@ -444,7 +462,7 @@ public class SetupFrame extends javax.swing.JFrame {
 
     private void relationBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox2ActionPerformed
         fm2.relation = relationBox2.getSelectedItem().toString();
-        System.out.println("fm2.relation" + fm2.relation);         
+        System.out.println("fm2.relation" + fm2.relation);
     }//GEN-LAST:event_relationBox2ActionPerformed
 
     private void relationBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relationBox3ActionPerformed
@@ -464,7 +482,7 @@ public class SetupFrame extends javax.swing.JFrame {
 
     public static void playSound() {
         System.out.println("Being playing sound...");
-        try {          
+        try {
             String audioFilePath = "resources/background_music.wav";
             File audioFile = new File(audioFilePath);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
@@ -478,7 +496,7 @@ public class SetupFrame extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
+
     public void stopSound() {
         audioClip.close();
     }
@@ -520,7 +538,6 @@ public class SetupFrame extends javax.swing.JFrame {
         });
     }
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField nameField1;
