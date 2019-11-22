@@ -47,29 +47,30 @@ public class SetupFrame extends javax.swing.JFrame {
      * Creates new form SetupFrame
      */
     public SetupFrame() {
-        // if config files have already been setup, then skip to MainMenuFrame
-        try {
-            File namesFile = File.createTempFile("namesconfig", ".properties");
-            File relationFile = File.createTempFile("relationsconfig", ".properties");
-            File photosFile = File.createTempFile("filepathconfig", ".properties");
+        // if config files have already been setup, then skip to MainMenuFrame 
+        File file1 = new File("namesconfig.properties");
+        File file2 = new File("relationsconfig.properties");
+        File file3 = new File("filepathconfig.properties");
             
-            boolean namesFileExists = namesFile.exists();
-            boolean relationsFileExists = relationFile.exists();
-            boolean photosFileExists = photosFile.exists();
+        boolean namesFileExists = file1.exists();
+        boolean relationsFileExists = file2.exists();
+        boolean photosFileExists = file3.exists();
             
-            System.out.println("Names config exists : " + namesFileExists);
-            System.out.println("Relatons config exists : " + relationsFileExists);
-            System.out.println("Photos config exists: " + photosFileExists);
+        System.out.println("Names config exists : " + namesFileExists);
+        System.out.println("Relations config exists : " + relationsFileExists);
+        System.out.println("Photos config exists: " + photosFileExists);
 
-            if (namesFileExists && relationsFileExists && photosFileExists) {
-                System.out.println("Skipping initial setup screen...");
-                MainMenuFrame mainFrame = new MainMenuFrame();
-                mainFrame.setVisible(true);
-                this.dispose();       
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        if (namesFileExists && relationsFileExists && photosFileExists) {
+            System.out.println("Skipping initial setup screen...");
+            MainMenuFrame mainFrame = new MainMenuFrame();
+            mainFrame.setVisible(true);
+            this.dispose();       
+        } else {
+            System.out.println("Initializing Componenets...");        
+            initComponents();        
+            System.out.println("Done Initializing Componenets!");
         }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
