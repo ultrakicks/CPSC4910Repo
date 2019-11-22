@@ -6,6 +6,7 @@
 package com.mycompany.memoryimprovementgame;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -53,10 +54,11 @@ public class Game {
     public static ArrayList<String> random_name = new ArrayList<>();
     public static int relationCount = 0;
     public static int nameCount = 0;
+    public static String hold = null;
+    public static JButton holdBtn;
 
     public static void Main(String[] args) {
     }
-
 
     public void startGame() {
         File statsFile = new File("stats.txt");
@@ -658,11 +660,11 @@ public class Game {
     }
 
     public void objectsGame() {
-        String[] objs = {"Book", "Pen", "Key", "Umbrella", "Button", "Toothbrush", "Light bulb", "Newspaper", "Alarm Clock", "Comb", "Watch", "Apple", "Telephone", "Soap", "TV", "Bed", "Fork", "Spoon", "Flower", "Shoe", "Paper clip", "Car", "Milk"};
-        String[] objImgs = {"resources/objs/book.png", "resources/objs/pen.png", "resources/objs/key.png", "resources/objs/umbrella.png", "resources/objs/button.png", "resources/objs/toothbrush.png", "resources/objs/lightbulb.png", "resources/objs/newspaper",
+        String[] objs = {"Book", "Pen", "Key", "Umbrella", "Button", "Toothbrush", "Light bulb", "Newspaper", "Alarm Clock", "Comb", "Watch", "Apple", "Telephone", "Soap", "TV", "Bed", "Fork", "Spoon", "Flower", "Shoe", "Paper clip", "Car", "Milk", "Water"};
+        String[] objImgs = {"resources/objs/book.png", "resources/objs/pen.png", "resources/objs/key.png", "resources/objs/umbrella.png", "resources/objs/button.png", "resources/objs/toothbrush.png", "resources/objs/lightbulb.png", "resources/objs/newspaper.png",
             "resources/objs/alarmclock.png", "resources/objs/comb.png", "resources/objs/watch.png", "resources/objs/apple.png", "resources/objs/telephone.png", "resources/objs/soap.png", "resources/objs/tv.png", "resources/objs/bed.png", "resources/objs/fork.png",
-            "resources/objs/spoon.png", "resources/objs/flower.png", "resources/objs/shoe.png", "resources/objs/paperclip.png", "resources/objs/car.png", "resources/objs/milk.png"};
-        JButton[] objBtn = new JButton[23];
+            "resources/objs/spoon.png", "resources/objs/flower.png", "resources/objs/shoe.png", "resources/objs/paperclip.png", "resources/objs/car.png", "resources/objs/milk.png", "resources/objs/water.png"};
+        JButton[] objBtn = new JButton[24];
 
         //create buttons to match with images
         for (int i = 0; i < objBtn.length; i++) {
@@ -680,7 +682,7 @@ public class Game {
         //add images to buttons
         for (int i = 0; i < objs.length; i++) {
             ImageIcon icon = new ImageIcon(objImgs[i]);
-            Image img = icon.getImage().getScaledInstance(250, 250, Image.SCALE_SMOOTH);
+            Image img = icon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
             icon = new ImageIcon(img);
             images.get(i).setIcon(icon);
         }
@@ -688,8 +690,10 @@ public class Game {
         //create main panel to hold other panels
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        GridLayout grid = new GridLayout(0, 6);
 
         JPanel btnPanel = new JPanel();
+        btnPanel.setLayout(grid);
         //shuffle buttons
         List<JButton> tmp = Arrays.asList(objBtn);
         Collections.shuffle(tmp);
@@ -698,7 +702,8 @@ public class Game {
             btnPanel.add(tmp.get(i));
         }
 
-        JPanel picturePanel = new JPanel();
+        JPanel picturePanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        picturePanel.setLayout(grid);
         //shuffle images
         Collections.shuffle(images);
         //add picture(buttons) to JPanel
@@ -716,7 +721,72 @@ public class Game {
         mainPanel.add(picturePanel);
         game.add(mainPanel);
 
+        game.setExtendedState(JFrame.MAXIMIZED_BOTH);
         game.setVisible(true);
+
+        //start of gamelogic
+        ActionListener listener = new ActionListener() {
+            //@Override
+            // variables to store statistics for a user
+            double incorrectSelectionCount = 0.00;
+            double correctSelectionCount = 0.00;
+            double totalSelectionCount = 0.00;
+            double competancy = 0.00;
+
+            public void actionPerformed(ActionEvent e) {
+                totalSelectionCount += 1;
+                if (e.getSource() instanceof JButton) {
+                    String text = ((JButton) e.getSource()).getActionCommand();
+
+                    if (nameCount != images.size() - 1) {
+                        if (text.equals(hold)) {
+                            nameCount++;
+                            ((JButton) e.getSource()).setVisible(false);
+                            holdBtn.setVisible(false);
+                            playSound();
+                            correctSelectionCount += 1;
+                        } else {
+                            hold = text;
+                            holdBtn = (JButton) e.getSource();
+                        }
+                    } else {
+                        //write statistics to the statistics file
+                        correctSelectionCount += 1;
+                        incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
+                        double competancy = Math.round((correctSelectionCount / totalSelectionCount) * 100);
+                        System.out.println("Correct Count: " + correctSelectionCount);
+                        System.out.println("Incorrect Count: " + incorrectSelectionCount);
+                        System.out.println("Total Selection Count: " + totalSelectionCount);
+                        System.out.println("Competancy: " + competancy);
+
+                        try {
+                            String gameStats = "Name and Realtion Game / " + incorrectSelectionCount + " / "
+                                    + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy + "%";
+                            FileWriter fileWriter = new FileWriter("stats.txt", true);
+                            PrintWriter printWriter = new PrintWriter(fileWriter);
+                            printWriter.println(gameStats);
+                            printWriter.close();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        WinFrame winNameAndRelationsGame = new WinFrame();
+                        winNameAndRelationsGame.setVisible(true);
+                        nameCount = 0;
+                        images.clear();
+                        game.dispose();
+                        playWinSound();
+                    }
+
+                }
+            }
+        };
+
+        for (int i = 0; i < objs.length; i++) {
+            objBtn[i].addActionListener(listener);
+            images.get(i).addActionListener(listener);
+        }
+
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }
