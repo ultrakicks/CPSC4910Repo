@@ -57,22 +57,22 @@ public class Game {
     public static void Main(String[] args) {
     }
 
-    public void createStatsFile() {
-        boolean test = true;
-        while (test) {
+
+    public void startGame() {
+        File statsFile = new File("stats.txt");
+        boolean statsFileExists = statsFile.exists();
+        System.out.println("Stats file exists : " + statsFileExists);
+
+        if (!statsFileExists) {
             try {
                 String gameStats = "Game Name , Incorrect Count , Correct Count , Total Count , Compentancy\n";
                 BufferedWriter writer = new BufferedWriter(new FileWriter("stats.txt"));
                 writer.append(gameStats);
                 writer.close();
-                test = false;
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
-    }
-
-    public void startGame() {
 
         //reads in relations to an array
         try (InputStream input = new FileInputStream("relationsconfig.properties")) {
@@ -659,11 +659,11 @@ public class Game {
 
     public void objectsGame() {
         String[] objs = {"Book", "Pen", "Key", "Umbrella", "Button", "Toothbrush", "Light bulb", "Newspaper", "Alarm Clock", "Comb", "Watch", "Apple", "Telephone", "Soap", "TV", "Bed", "Fork", "Spoon", "Flower", "Shoe", "Paper clip", "Car", "Milk"};
-        String[] objImgs = {"resources/objs/book.png", "resources/objs/pen.png", "resources/objs/key.png", "resources/objs/umbrella.png", "resources/objs/button.png", "resources/objs/toothbrush.png", "resources/objs/lightbulb.png", "resources/objs/newspaper", 
-                            "resources/objs/alarmclock.png", "resources/objs/comb.png", "resources/objs/watch.png", "resources/objs/apple.png", "resources/objs/telephone.png", "resources/objs/soap.png", "resources/objs/tv.png", "resources/objs/bed.png", "resources/objs/fork.png",
-                            "resources/objs/spoon.png", "resources/objs/flower.png", "resources/objs/shoe.png", "resources/objs/paperclip.png", "resources/objs/car.png", "resources/objs/milk.png"};
+        String[] objImgs = {"resources/objs/book.png", "resources/objs/pen.png", "resources/objs/key.png", "resources/objs/umbrella.png", "resources/objs/button.png", "resources/objs/toothbrush.png", "resources/objs/lightbulb.png", "resources/objs/newspaper",
+            "resources/objs/alarmclock.png", "resources/objs/comb.png", "resources/objs/watch.png", "resources/objs/apple.png", "resources/objs/telephone.png", "resources/objs/soap.png", "resources/objs/tv.png", "resources/objs/bed.png", "resources/objs/fork.png",
+            "resources/objs/spoon.png", "resources/objs/flower.png", "resources/objs/shoe.png", "resources/objs/paperclip.png", "resources/objs/car.png", "resources/objs/milk.png"};
         JButton[] objBtn = new JButton[23];
-        
+
         //create buttons to match with images
         for (int i = 0; i < objBtn.length; i++) {
             objBtn[i] = new JButton();
@@ -671,7 +671,7 @@ public class Game {
             objBtn[i].setFont(new Font("Comic Sans", Font.PLAIN, 35));
             objBtn[i].setActionCommand(objs[i]);
         }
-        
+
         //create buttons to hold images
         for (int i = 0; i < objs.length; i++) {
             images.add(new JButton());
@@ -694,10 +694,10 @@ public class Game {
         List<JButton> tmp = Arrays.asList(objBtn);
         Collections.shuffle(tmp);
         //add matching buttons to JPanel
-        for(int i = 0; i < objs.length; i++) {
+        for (int i = 0; i < objs.length; i++) {
             btnPanel.add(tmp.get(i));
         }
-        
+
         JPanel picturePanel = new JPanel();
         //shuffle images
         Collections.shuffle(images);
@@ -705,7 +705,7 @@ public class Game {
         for (int i = 0; i < images.size(); i++) {
             picturePanel.add(images.get(i));
         }
-        
+
         JFrame game = new JFrame();
         game.setPreferredSize(new Dimension(1200, 1000));
         game.pack();
