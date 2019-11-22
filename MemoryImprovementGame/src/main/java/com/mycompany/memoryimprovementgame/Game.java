@@ -732,12 +732,10 @@ public class Game {
             double correctSelectionCount = 0.00;
             double totalSelectionCount = 0.00;
             double competancy = 0.00;
-
             public void actionPerformed(ActionEvent e) {
                 totalSelectionCount += 1;
                 if (e.getSource() instanceof JButton) {
                     String text = ((JButton) e.getSource()).getActionCommand();
-
                     if (nameCount != images.size() - 1) {
                         if (text.equals(hold)) {
                             nameCount++;
@@ -745,22 +743,24 @@ public class Game {
                             holdBtn.setVisible(false);
                             playSound();
                             correctSelectionCount += 1;
+                            System.out.println("Correct Count: " + correctSelectionCount);
+                            System.out.println("Incorrect Count: " + (totalSelectionCount - correctSelectionCount));
+                            System.out.println("Total Selection Count: " + totalSelectionCount);
                         } else {
                             hold = text;
                             holdBtn = (JButton) e.getSource();
                         }
                     } else {
                         //write statistics to the statistics file
-                        correctSelectionCount += 1;
-                        incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
-                        double competancy = Math.round((correctSelectionCount / totalSelectionCount) * 100);
+                        //correctSelectionCount += 1;
+                        //incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
+                        double competancy = Math.round((correctSelectionCount - incorrectSelectionCount / correctSelectionCount) * 100);  
                         System.out.println("Correct Count: " + correctSelectionCount);
-                        System.out.println("Incorrect Count: " + incorrectSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
                         System.out.println("Competancy: " + competancy);
 
                         try {
-                            String gameStats = "Name and Realtion Game / " + incorrectSelectionCount + " / "
+                            String gameStats = "Everyday Objects Game / " + incorrectSelectionCount + " / "
                                     + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy + "%";
                             FileWriter fileWriter = new FileWriter("stats.txt", true);
                             PrintWriter printWriter = new PrintWriter(fileWriter);
