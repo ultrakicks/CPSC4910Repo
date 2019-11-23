@@ -161,6 +161,18 @@ public class Game {
         game.setVisible(true);
         System.out.println(filePaths);
 
+        int delay = 1000; //milliseconds
+        ActionListener taskPerformer = new ActionListener() {
+            int counter_in_secs = 0;
+
+            public void actionPerformed(ActionEvent evt) {
+                counter_in_secs += 1;
+                System.out.println("Seconds Played: " + counter_in_secs);
+            }
+        };
+
+        new Timer(delay, taskPerformer).start();
+
         //start of gamelogic
         ActionListener listener = new ActionListener() {
             //@Override
@@ -277,6 +289,7 @@ public class Game {
                             correctSelectionCount += 1;
                         }
                     } else {
+                        new Timer(delay, taskPerformer).stop();
                         //write statistics to the statistics file
                         correctSelectionCount += 1;
                         incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
@@ -286,6 +299,7 @@ public class Game {
                         //System.out.println("Incorrect Count: " + incorrectSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
                         System.out.println("Competancy: " + competancy);
+                        //System.out.println("Time to complete (in seconds): " + counter_in_secs);
 
                         try {
                             String gameStats = "Relation Game / " + incorrectSelectionCount + " / "
@@ -732,6 +746,7 @@ public class Game {
             double correctSelectionCount = 0.00;
             double totalSelectionCount = 0.00;
             double competancy = 0.00;
+
             public void actionPerformed(ActionEvent e) {
                 totalSelectionCount += 1;
                 if (e.getSource() instanceof JButton) {
@@ -754,7 +769,7 @@ public class Game {
                         //write statistics to the statistics file
                         //correctSelectionCount += 1;
                         //incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
-                        double competancy = Math.round((correctSelectionCount - incorrectSelectionCount / correctSelectionCount) * 100);  
+                        double competancy = Math.round((correctSelectionCount - incorrectSelectionCount / correctSelectionCount) * 100);
                         System.out.println("Correct Count: " + correctSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
                         System.out.println("Competancy: " + competancy);
