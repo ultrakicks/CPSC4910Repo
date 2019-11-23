@@ -33,6 +33,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="resetStatsButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="muteMusic" alignment="0" max="32767" attributes="0"/>
                           <Component id="musicSelect" alignment="0" max="32767" attributes="0"/>
                           <Component id="resetConfig" alignment="0" max="32767" attributes="0"/>
@@ -48,11 +49,13 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
               <Component id="musicSelect" min="-2" pref="110" max="-2" attributes="0"/>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="muteMusic" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="resetStatsButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="resetConfig" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
               <Component id="returnToMain" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -93,6 +96,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muteMusicActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="resetStatsButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reset Statistics"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetStatsButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
