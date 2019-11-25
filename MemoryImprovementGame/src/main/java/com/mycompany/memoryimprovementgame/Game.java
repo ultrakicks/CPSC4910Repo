@@ -169,30 +169,6 @@ public class Game {
 
         new Timer(delay, taskPerformer).start();
 
-        int delay = 1000; //milliseconds
-        ActionListener taskPerformer = new ActionListener() {
-            int counter_in_secs = 0;
-
-            public void actionPerformed(ActionEvent evt) {
-                counter_in_secs += 1;
-                System.out.println("Seconds Played: " + counter_in_secs);
-            }
-        };
-
-        new Timer(delay, taskPerformer).start();
-
-        int delay = 1000; //milliseconds
-        ActionListener taskPerformer = new ActionListener() {
-            int counter_in_secs = 0;
-
-            public void actionPerformed(ActionEvent evt) {
-                counter_in_secs += 1;
-                System.out.println("Seconds Played: " + counter_in_secs);
-            }
-        };
-
-        new Timer(delay, taskPerformer).start();
-
         //start of gamelogic
         ActionListener listener = new ActionListener() {
             //@Override
@@ -881,6 +857,7 @@ public class Game {
                         WinFrame winNameAndRelationsGame = new WinFrame();
                         winNameAndRelationsGame.setVisible(true);
                         nameCount = 0;
+                        objBtn = new JButton[24];
                         images.clear();
                         game.dispose();
                         playWinSound();
@@ -923,32 +900,7 @@ public class Game {
 
     }
 
-    public class TimerPanel extends JPanel {
-
-        Timer timer;
-        int count;
-
-        public TimerPanel() {
-            //timer set up
-            JLabel time = null;
-            timer = new javax.swing.Timer(500, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    count++;
-                    if (count < 100000) {
-                        time.setText(Integer.toString(count));
-                    } else {
-                        ((javax.swing.Timer) (e.getSource())).stop();
-                    }
-                }
-            });
-            timer.setInitialDelay(0);
-            timer.start();
-            JPanel timePanel = new JPanel();
-            timePanel.add(time);
-
-        }
-    }
+    
 
     public static void playSound() {
         System.out.println("Being playing sound...");
