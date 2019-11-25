@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.memoryimprovementgame;
+
 import java.io.File;
 
 /**
@@ -11,7 +12,7 @@ import java.io.File;
  * @author matt
  */
 public class SettingsFrame extends javax.swing.JFrame {
-    
+
     public musicSelector music = new musicSelector();
     public SetupFrame backgroundMusic = new SetupFrame();
 
@@ -35,6 +36,7 @@ public class SettingsFrame extends javax.swing.JFrame {
         resetConfig = new javax.swing.JButton();
         musicSelect = new javax.swing.JButton();
         muteMusic = new javax.swing.JButton();
+        resetStatsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +69,13 @@ public class SettingsFrame extends javax.swing.JFrame {
             }
         });
 
+        resetStatsButton.setText("Reset Statistics");
+        resetStatsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetStatsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,6 +89,7 @@ public class SettingsFrame extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(resetStatsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(muteMusic, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(musicSelect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(resetConfig, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -90,11 +100,13 @@ public class SettingsFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addComponent(musicSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(muteMusic)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
+                .addComponent(resetStatsButton)
+                .addGap(18, 18, 18)
                 .addComponent(resetConfig)
-                .addGap(64, 64, 64)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(returnToMain)
                 .addContainerGap())
         );
@@ -111,20 +123,34 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     private void resetConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetConfigActionPerformed
 
-        /* Delete the config.ser file*/ 
-        String configFilePath = "C:\\Users\\...\\...\\...\\...\\MemoryImprovementGame\\config.ser";
-        File configFile = new File(configFilePath);
-        if(configFile.delete()){
-            System.out.println("config.ser file has been deleted");
+        /* Deletes the * config.properties files  */
+        String rFilePath = "relationsconfig.properties";
+        File rFile = new File(rFilePath);
+        if (rFile.delete()) {
+            System.out.println("relationsconfig.properties file has been deleted");
+        } else {
+            System.out.print("relationsconfig.properties file has not been deleted");
         }
-        else {
-            System.out.print("config.ser file has not been deleted");
+
+        String nFilePath = "namesconfig.properties";
+        File nFile = new File(nFilePath);
+        if (nFile.delete()) {
+            System.out.println("namesconfig.properties file has been deleted");
+        } else {
+            System.out.print("namesconfig.properties file has not been deleted");
         }
-       
-       
-        /* Reset Back to Setup Screen*/ 
-        SetupFrame setupFrame = new SetupFrame();
-        setupFrame.setVisible(true);
+
+        String pFilePath = "filepathconfig.properties";
+        File pFile = new File(nFilePath);
+        if (nFile.delete()) {
+            System.out.println("filepathconfig.properties file has been deleted");
+        } else {
+            System.out.print("filepathconfig.properties file has not been deleted");
+        }
+
+        /* Reset Back to Main Menu Screen*/
+        SetupFrame sFrame = new SetupFrame();
+        sFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_resetConfigActionPerformed
 
@@ -137,7 +163,23 @@ public class SettingsFrame extends javax.swing.JFrame {
         music.stopMusic();
     }//GEN-LAST:event_muteMusicActionPerformed
 
-    
+    private void resetStatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetStatsButtonActionPerformed
+        /* Delete the stats.txt file*/ 
+        String statsFilePath = "stats.txt";
+        File sFile = new File(statsFilePath);
+        if(sFile.delete()){
+            System.out.println("stats.txt file has been deleted");
+        }
+        else {
+            System.out.print("stats.txt file has not been deleted");
+        }
+       
+        /* Reset Back to Mian Menu Screen*/ 
+        MainMenuFrame mmFrame = new MainMenuFrame ();
+        mmFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_resetStatsButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -177,6 +219,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     private javax.swing.JButton musicSelect;
     private javax.swing.JButton muteMusic;
     private javax.swing.JButton resetConfig;
+    private javax.swing.JButton resetStatsButton;
     private javax.swing.JButton returnToMain;
     // End of variables declaration//GEN-END:variables
 }
