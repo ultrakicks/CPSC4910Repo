@@ -37,6 +37,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
@@ -54,6 +55,11 @@ public class Game {
     public static ArrayList<String> random_name = new ArrayList<>();
     public static int relationCount = 0;
     public static int nameCount = 0;
+    public static String[] objs = {"Book", "Pen", "Key", "Umbrella", "Button", "Toothbrush", "Light bulb", "Newspaper", "Alarm Clock", "Comb", "Watch", "Apple", "Telephone", "Soap", "TV", "Bed", "Fork", "Spoon", "Flower", "Shoe", "Paper clip", "Car", "Milk", "Water"};
+    public static String[] objImgs = {"resources/objs/book.png", "resources/objs/pen.png", "resources/objs/key.png", "resources/objs/umbrella.png", "resources/objs/button.png", "resources/objs/toothbrush.png", "resources/objs/lightbulb.png", "resources/objs/newspaper.png",
+        "resources/objs/alarmclock.png", "resources/objs/comb.png", "resources/objs/watch.png", "resources/objs/apple.png", "resources/objs/telephone.png", "resources/objs/soap.png", "resources/objs/tv.png", "resources/objs/bed.png", "resources/objs/fork.png",
+        "resources/objs/spoon.png", "resources/objs/flower.png", "resources/objs/shoe.png", "resources/objs/paperclip.png", "resources/objs/car.png", "resources/objs/milk.png", "resources/objs/water.png"};
+    public static JButton[] objBtn = new JButton[24];
     public static String hold = null;
     public static JButton holdBtn;
 
@@ -149,17 +155,19 @@ public class Game {
         questionPanel.add(question);
 
         JFrame game = new JFrame();
-        game.setPreferredSize(new Dimension(1200, 1000));
-        game.pack();
-        game.setLocationRelativeTo(null);
-
-        //game.add(new TimerPanel());
-        mainPanel.add(questionPanel);
-        mainPanel.add(picturePanel);
-        game.add(mainPanel);
-
-        game.setVisible(true);
         System.out.println(filePaths);
+
+        int delay = 1000; //milliseconds
+        ActionListener taskPerformer = new ActionListener() {
+            int counter_in_secs = 0;
+
+            public void actionPerformed(ActionEvent evt) {
+                counter_in_secs += 1;
+                System.out.println("Seconds Played: " + counter_in_secs);
+            }
+        };
+
+        new Timer(delay, taskPerformer).start();
 
         //start of gamelogic
         ActionListener listener = new ActionListener() {
@@ -275,8 +283,20 @@ public class Game {
                                 }
                             }
                             correctSelectionCount += 1;
+                        } else if (text.equals("quit")) {
+
+                            MainMenuFrame menu = new MainMenuFrame();
+                            menu.setVisible(true);
+                            relationCount = 0;
+                            relations.clear();
+                            filePaths.clear();
+                            images.clear();
+                            random_relation.clear();
+                            game.dispose();
+
                         }
                     } else {
+                        new Timer(delay, taskPerformer).stop();
                         //write statistics to the statistics file
                         correctSelectionCount += 1;
                         incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
@@ -286,6 +306,7 @@ public class Game {
                         //System.out.println("Incorrect Count: " + incorrectSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
                         System.out.println("Competancy: " + competancy);
+                        //System.out.println("Time to complete (in seconds): " + counter_in_secs);
 
                         try {
                             String gameStats = "Relation Game / " + incorrectSelectionCount + " / "
@@ -315,6 +336,30 @@ public class Game {
         for (int i = 0; i < images.size(); i++) {
             images.get(i).addActionListener(listener);
         }
+
+        game.setPreferredSize(new Dimension(1200, 1000));
+        game.pack();
+        game.setLocationRelativeTo(null);
+
+        //game.add(new TimerPanel());
+        JPanel exitPanel = new JPanel();
+        JButton exitBtn = new JButton();
+        exitBtn.setText("Quit");
+        exitBtn.setFont(new Font("Comic Sans", Font.PLAIN, 35));
+        exitBtn.setActionCommand("quit");
+        exitBtn.addActionListener(listener);
+        exitPanel.add(exitBtn);
+        mainPanel.add(questionPanel);
+        mainPanel.add(picturePanel);
+        mainPanel.add(exitPanel);
+        JScrollPane jScrollPane = new JScrollPane(mainPanel);
+        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        game.add(jScrollPane);
+
+        game.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        game.getContentPane().add(jScrollPane);
+        game.setVisible(true);
 
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
@@ -393,16 +438,6 @@ public class Game {
         questionPanel.add(question);
 
         JFrame game = new JFrame();
-        game.setPreferredSize(new Dimension(1200, 1000));
-        game.pack();
-        game.setLocationRelativeTo(null);
-
-        //game.add(new TimerPanel());
-        mainPanel.add(questionPanel);
-        mainPanel.add(picturePanel);
-        game.add(mainPanel);
-
-        game.setVisible(true);
         System.out.println(filePaths);
 
         //start of gamelogic
@@ -434,6 +469,17 @@ public class Game {
                                 }
                             }
                             correctSelectionCount += 1;
+                        } else if (text.equals("quit")) {
+
+                            MainMenuFrame menu = new MainMenuFrame();
+                            menu.setVisible(true);
+                            nameCount = 0;
+                            names.clear();
+                            filePaths.clear();
+                            images.clear();
+                            random_name.clear();
+                            game.dispose();
+
                         }
                     } else {
                         //write statistics to the statistics file
@@ -475,6 +521,30 @@ public class Game {
                 i++) {
             images.get(i).addActionListener(listener);
         }
+
+        game.setPreferredSize(new Dimension(1200, 1000));
+        game.pack();
+        game.setLocationRelativeTo(null);
+
+        //game.add(new TimerPanel());
+        JPanel exitPanel = new JPanel();
+        JButton exitBtn = new JButton();
+        exitBtn.setText("Quit");
+        exitBtn.setFont(new Font("Comic Sans", Font.PLAIN, 35));
+        exitBtn.setActionCommand("quit");
+        exitBtn.addActionListener(listener);
+        exitPanel.add(exitBtn);
+        mainPanel.add(questionPanel);
+        mainPanel.add(picturePanel);
+        mainPanel.add(exitPanel);
+        JScrollPane jScrollPane = new JScrollPane(mainPanel);
+        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        game.add(jScrollPane);
+
+        game.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        game.getContentPane().add(jScrollPane);
+        game.setVisible(true);
 
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
@@ -578,17 +648,6 @@ public class Game {
         questionPanel.add(relationBox);
 
         JFrame game = new JFrame();
-        game.setPreferredSize(new Dimension(1200, 1000));
-        game.pack();
-        game.setLocationRelativeTo(null);
-
-        //game.add(new TimerPanel());
-        mainPanel.add(questionPanel);
-        mainPanel.add(picturePanel);
-        game.add(mainPanel);
-
-        game.setVisible(true);
-        System.out.println(filePaths);
 
         //start of gamelogic
         ActionListener listener = new ActionListener() {
@@ -614,6 +673,18 @@ public class Game {
                                 ((JButton) e.getSource()).setVisible(false);
                                 playSound();
                                 correctSelectionCount += 1;
+                            } else if (text.equals("quit")) {
+
+                                MainMenuFrame menu = new MainMenuFrame();
+                                menu.setVisible(true);
+                                nameCount = 0;
+                                names.clear();
+                                relations.clear();
+                                filePaths.clear();
+                                images.clear();
+                                random_name.clear();
+                                game.dispose();
+
                             }
                         }
                     } else {
@@ -656,15 +727,35 @@ public class Game {
             images.get(i).addActionListener(listener);
         }
 
+        game.setPreferredSize(new Dimension(1200, 1000));
+        game.pack();
+        game.setLocationRelativeTo(null);
+
+        //game.add(new TimerPanel());
+        JPanel exitPanel = new JPanel();
+        JButton exitBtn = new JButton();
+        exitBtn.setText("Quit");
+        exitBtn.setFont(new Font("Comic Sans", Font.PLAIN, 35));
+        exitBtn.setActionCommand("quit");
+        exitBtn.addActionListener(listener);
+        exitPanel.add(exitBtn);
+        mainPanel.add(questionPanel);
+        mainPanel.add(picturePanel);
+        mainPanel.add(exitPanel);
+        JScrollPane jScrollPane = new JScrollPane(mainPanel);
+        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        game.add(jScrollPane);
+
+        game.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        game.getContentPane().add(jScrollPane);
+        game.setVisible(true);
+
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     public void objectsGame() {
-        String[] objs = {"Book", "Pen", "Key", "Umbrella", "Button", "Toothbrush", "Light bulb", "Newspaper", "Alarm Clock", "Comb", "Watch", "Apple", "Telephone", "Soap", "TV", "Bed", "Fork", "Spoon", "Flower", "Shoe", "Paper clip", "Car", "Milk", "Water"};
-        String[] objImgs = {"resources/objs/book.png", "resources/objs/pen.png", "resources/objs/key.png", "resources/objs/umbrella.png", "resources/objs/button.png", "resources/objs/toothbrush.png", "resources/objs/lightbulb.png", "resources/objs/newspaper.png",
-            "resources/objs/alarmclock.png", "resources/objs/comb.png", "resources/objs/watch.png", "resources/objs/apple.png", "resources/objs/telephone.png", "resources/objs/soap.png", "resources/objs/tv.png", "resources/objs/bed.png", "resources/objs/fork.png",
-            "resources/objs/spoon.png", "resources/objs/flower.png", "resources/objs/shoe.png", "resources/objs/paperclip.png", "resources/objs/car.png", "resources/objs/milk.png", "resources/objs/water.png"};
-        JButton[] objBtn = new JButton[24];
+        JFrame game = new JFrame();
 
         //create buttons to match with images
         for (int i = 0; i < objBtn.length; i++) {
@@ -711,19 +802,6 @@ public class Game {
             picturePanel.add(images.get(i));
         }
 
-        JFrame game = new JFrame();
-        game.setPreferredSize(new Dimension(1200, 1000));
-        game.pack();
-        game.setLocationRelativeTo(null);
-
-        //game.add(new TimerPanel());
-        mainPanel.add(btnPanel);
-        mainPanel.add(picturePanel);
-        game.add(mainPanel);
-
-        game.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        game.setVisible(true);
-
         //start of gamelogic
         ActionListener listener = new ActionListener() {
             //@Override
@@ -737,7 +815,6 @@ public class Game {
                 totalSelectionCount += 1;
                 if (e.getSource() instanceof JButton) {
                     String text = ((JButton) e.getSource()).getActionCommand();
-
                     if (nameCount != images.size() - 1) {
                         if (text.equals(hold)) {
                             nameCount++;
@@ -745,22 +822,29 @@ public class Game {
                             holdBtn.setVisible(false);
                             playSound();
                             correctSelectionCount += 1;
+                        } else if (text.equals("quit")) {
+
+                            MainMenuFrame menu = new MainMenuFrame();
+                            images.clear();
+                            objBtn = new JButton[24];
+                            menu.setVisible(true);
+                            game.dispose();
+
                         } else {
                             hold = text;
                             holdBtn = (JButton) e.getSource();
                         }
                     } else {
                         //write statistics to the statistics file
-                        correctSelectionCount += 1;
-                        incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
-                        double competancy = Math.round((correctSelectionCount / totalSelectionCount) * 100);
+                        //correctSelectionCount += 1;
+                        //incorrectSelectionCount = totalSelectionCount - correctSelectionCount;
+                        double competancy = Math.round((correctSelectionCount - incorrectSelectionCount / correctSelectionCount) * 100);
                         System.out.println("Correct Count: " + correctSelectionCount);
-                        System.out.println("Incorrect Count: " + incorrectSelectionCount);
                         System.out.println("Total Selection Count: " + totalSelectionCount);
                         System.out.println("Competancy: " + competancy);
 
                         try {
-                            String gameStats = "Name and Realtion Game / " + incorrectSelectionCount + " / "
+                            String gameStats = "Everyday Objects Game / " + incorrectSelectionCount + " / "
                                     + correctSelectionCount + " / " + totalSelectionCount + " / " + competancy + "%";
                             FileWriter fileWriter = new FileWriter("stats.txt", true);
                             PrintWriter printWriter = new PrintWriter(fileWriter);
@@ -786,6 +870,30 @@ public class Game {
             objBtn[i].addActionListener(listener);
             images.get(i).addActionListener(listener);
         }
+
+        game.setPreferredSize(new Dimension(1200, 1000));
+        game.pack();
+        game.setLocationRelativeTo(null);
+
+        //game.add(new TimerPanel());
+        JPanel exitPanel = new JPanel();
+        JButton exitBtn = new JButton();
+        exitBtn.setText("Quit");
+        exitBtn.setFont(new Font("Comic Sans", Font.PLAIN, 35));
+        exitBtn.setActionCommand("quit");
+        exitBtn.addActionListener(listener);
+        exitPanel.add(exitBtn);
+        mainPanel.add(btnPanel);
+        mainPanel.add(picturePanel);
+        mainPanel.add(exitPanel);
+        JScrollPane jScrollPane = new JScrollPane(mainPanel);
+        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        game.add(jScrollPane);
+
+        game.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        game.getContentPane().add(jScrollPane);
+        game.setVisible(true);
 
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
