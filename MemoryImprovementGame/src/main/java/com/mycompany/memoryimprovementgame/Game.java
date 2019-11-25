@@ -181,6 +181,18 @@ public class Game {
 
         new Timer(delay, taskPerformer).start();
 
+        int delay = 1000; //milliseconds
+        ActionListener taskPerformer = new ActionListener() {
+            int counter_in_secs = 0;
+
+            public void actionPerformed(ActionEvent evt) {
+                counter_in_secs += 1;
+                System.out.println("Seconds Played: " + counter_in_secs);
+            }
+        };
+
+        new Timer(delay, taskPerformer).start();
+
         //start of gamelogic
         ActionListener listener = new ActionListener() {
             //@Override
