@@ -50,6 +50,12 @@ public class musicSelector extends javax.swing.JFrame {
         sisterSledge = new javax.swing.JButton();
         villagePeople = new javax.swing.JButton();
         ericClapton = new javax.swing.JButton();
+        BryanAdams = new javax.swing.JButton();
+        KennyLoggins = new javax.swing.JButton();
+        Journey = new javax.swing.JButton();
+        RickSpringfield = new javax.swing.JButton();
+        seventiesLbl1 = new javax.swing.JLabel();
+        BonJovi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,6 +141,43 @@ public class musicSelector extends javax.swing.JFrame {
             }
         });
 
+        BryanAdams.setText("Bryan Adams - Summer Of '69 ");
+        BryanAdams.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BryanAdamsActionPerformed(evt);
+            }
+        });
+
+        KennyLoggins.setText("Kenny Loggins - Footloose");
+        KennyLoggins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KennyLogginsActionPerformed(evt);
+            }
+        });
+
+        Journey.setText("Journey - Don't Stop Believin'");
+        Journey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JourneyActionPerformed(evt);
+            }
+        });
+
+        RickSpringfield.setText("Rick Springfield - Jessie's Girl");
+        RickSpringfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RickSpringfieldActionPerformed(evt);
+            }
+        });
+
+        seventiesLbl1.setText("80s");
+
+        BonJovi.setText("Bon Jovi - Livin' On A Prayer");
+        BonJovi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BonJoviActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,12 +194,17 @@ public class musicSelector extends javax.swing.JFrame {
                             .addComponent(otisDayKnights)
                             .addComponent(beetles)
                             .addComponent(vanMorrison)
+                            .addComponent(frankSinatra)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(sixtiesLbl))
-                            .addComponent(frankSinatra))
-                        .addGap(69, 69, 69)
+                                .addGap(10, 10, 10)
+                                .addComponent(sixtiesLbl)))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(seventiesLbl)
+                                .addGap(254, 254, 254)
+                                .addComponent(seventiesLbl1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lynyrdSkynyrd)
@@ -164,23 +212,24 @@ public class musicSelector extends javax.swing.JFrame {
                                     .addComponent(villagePeople)
                                     .addComponent(ericClapton)
                                     .addComponent(bobSeger))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(seventiesLbl)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BryanAdams)
+                                    .addComponent(KennyLoggins)
+                                    .addComponent(Journey)
+                                    .addComponent(RickSpringfield)
+                                    .addComponent(BonJovi))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sixtiesLbl)
-                    .addComponent(seventiesLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(sixtiesLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(frankSinatra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(neilDiamond)
@@ -190,17 +239,34 @@ public class musicSelector extends javax.swing.JFrame {
                         .addComponent(beetles)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(vanMorrison))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bobSeger)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lynyrdSkynyrd)
-                        .addGap(2, 2, 2)
-                        .addComponent(sisterSledge)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(villagePeople)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ericClapton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(seventiesLbl1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BonJovi)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BryanAdams)
+                                .addGap(2, 2, 2)
+                                .addComponent(KennyLoggins)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Journey, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RickSpringfield))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(seventiesLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bobSeger)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lynyrdSkynyrd)
+                                .addGap(2, 2, 2)
+                                .addComponent(sisterSledge)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(villagePeople)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ericClapton)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(backBtn)
                 .addContainerGap())
         );
@@ -413,6 +479,106 @@ public class musicSelector extends javax.swing.JFrame {
         //this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void BryanAdamsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BryanAdamsActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/80s/BryanAdams.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_BryanAdamsActionPerformed
+
+    private void KennyLogginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KennyLogginsActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/80s/KennyLoggins.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_KennyLogginsActionPerformed
+
+    private void JourneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JourneyActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/80s/Journey.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_JourneyActionPerformed
+
+    private void RickSpringfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RickSpringfieldActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/80s/RickSpringfield.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_RickSpringfieldActionPerformed
+
+    private void BonJoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BonJoviActionPerformed
+        try {
+            if (clipRunning) {
+                audioClip.close();
+            }
+            String audioFilePath = "resources/80s/BonJovi.wav";
+            File audioFile = new File(audioFilePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            clipRunning = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_BonJoviActionPerformed
+
     public void stopMusic() {
         audioClip.close();
     }
@@ -453,6 +619,11 @@ public class musicSelector extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BonJovi;
+    private javax.swing.JButton BryanAdams;
+    private javax.swing.JButton Journey;
+    private javax.swing.JButton KennyLoggins;
+    private javax.swing.JButton RickSpringfield;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton beetles;
     private javax.swing.JButton bobSeger;
@@ -462,6 +633,7 @@ public class musicSelector extends javax.swing.JFrame {
     private javax.swing.JButton neilDiamond;
     private javax.swing.JButton otisDayKnights;
     private javax.swing.JLabel seventiesLbl;
+    private javax.swing.JLabel seventiesLbl1;
     private javax.swing.JButton sisterSledge;
     private javax.swing.JLabel sixtiesLbl;
     private javax.swing.JButton vanMorrison;
