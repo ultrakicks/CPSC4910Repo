@@ -25,50 +25,78 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="welcomeMsg" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+              <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="relationLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
+                      <Component id="pictureLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="relationBox1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Component id="pictureBtn1" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="pictureBtn2" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                  <Component id="pictureBtn6" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="pictureBtn7" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="pictureBtn8" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="pictureBtn9" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="pictureBtn10" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="pictureBtn5" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="pictureBtn4" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="pictureBtn3" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="163" pref="163" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="relationBox10" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox9" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Component id="nextFrame" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="nameField1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="nameField2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="nameField3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="nameField4" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="nameField5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField7" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField8" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField9" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField10" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="nameField6" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pictureBtn1" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="pictureBtn2" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="pictureBtn3" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="pictureBtn4" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="pictureBtn5" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="welcomeMsg" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                      <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="relationBox1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="relationLbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
-                              <Component id="pictureLbl" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="relationBox2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="relationBox3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="relationBox4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="relationBox5" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,36 +111,74 @@
                   <Component id="pictureLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="relationBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pictureBtn1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pictureBtn4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pictureBtn5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pictureBtn6" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pictureBtn7" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pictureBtn8" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameField10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="relationBox9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pictureBtn9" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="pictureBtn1" min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="pictureBtn2" min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="pictureBtn3" min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="relationBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pictureBtn2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="nameField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="relationBox10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pictureBtn10" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="relationBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pictureBtn3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="relationBox4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pictureBtn4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nameField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="relationBox5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pictureBtn5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
               <Component id="nextFrame" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -401,6 +467,261 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextFrameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nameField6">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameField6ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="relationBox6">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="24">
+            <StringItem index="0" value="Choose One..."/>
+            <StringItem index="1" value="Father"/>
+            <StringItem index="2" value="Mother"/>
+            <StringItem index="3" value="Brother"/>
+            <StringItem index="4" value="Sister"/>
+            <StringItem index="5" value="Grand-mother"/>
+            <StringItem index="6" value="Grand-father"/>
+            <StringItem index="7" value="Aunt"/>
+            <StringItem index="8" value="Uncle"/>
+            <StringItem index="9" value="Cousin"/>
+            <StringItem index="10" value="Nephew"/>
+            <StringItem index="11" value="Niece"/>
+            <StringItem index="12" value="Step-Father"/>
+            <StringItem index="13" value="Step-Mother"/>
+            <StringItem index="14" value="Step-Brother"/>
+            <StringItem index="15" value="Step-Sister"/>
+            <StringItem index="16" value="Half-Brother"/>
+            <StringItem index="17" value="Half-Sister"/>
+            <StringItem index="18" value="Son"/>
+            <StringItem index="19" value="Daughter"/>
+            <StringItem index="20" value="Grand-son"/>
+            <StringItem index="21" value="Grand-daughter"/>
+            <StringItem index="22" value="Great Grand-son"/>
+            <StringItem index="23" value="Great Grand-daughter"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relationBox6ActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="relationBox7">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="24">
+            <StringItem index="0" value="Choose One..."/>
+            <StringItem index="1" value="Father"/>
+            <StringItem index="2" value="Mother"/>
+            <StringItem index="3" value="Brother"/>
+            <StringItem index="4" value="Sister"/>
+            <StringItem index="5" value="Grand-mother"/>
+            <StringItem index="6" value="Grand-father"/>
+            <StringItem index="7" value="Aunt"/>
+            <StringItem index="8" value="Uncle"/>
+            <StringItem index="9" value="Cousin"/>
+            <StringItem index="10" value="Nephew"/>
+            <StringItem index="11" value="Niece"/>
+            <StringItem index="12" value="Step-Father"/>
+            <StringItem index="13" value="Step-Mother"/>
+            <StringItem index="14" value="Step-Brother"/>
+            <StringItem index="15" value="Step-Sister"/>
+            <StringItem index="16" value="Half-Brother"/>
+            <StringItem index="17" value="Half-Sister"/>
+            <StringItem index="18" value="Son"/>
+            <StringItem index="19" value="Daughter"/>
+            <StringItem index="20" value="Grand-son"/>
+            <StringItem index="21" value="Grand-daughter"/>
+            <StringItem index="22" value="Great Grand-son"/>
+            <StringItem index="23" value="Great Grand-daughter"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relationBox7ActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="relationBox8">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="24">
+            <StringItem index="0" value="Choose One..."/>
+            <StringItem index="1" value="Father"/>
+            <StringItem index="2" value="Mother"/>
+            <StringItem index="3" value="Brother"/>
+            <StringItem index="4" value="Sister"/>
+            <StringItem index="5" value="Grand-mother"/>
+            <StringItem index="6" value="Grand-father"/>
+            <StringItem index="7" value="Aunt"/>
+            <StringItem index="8" value="Uncle"/>
+            <StringItem index="9" value="Cousin"/>
+            <StringItem index="10" value="Nephew"/>
+            <StringItem index="11" value="Niece"/>
+            <StringItem index="12" value="Step-Father"/>
+            <StringItem index="13" value="Step-Mother"/>
+            <StringItem index="14" value="Step-Brother"/>
+            <StringItem index="15" value="Step-Sister"/>
+            <StringItem index="16" value="Half-Brother"/>
+            <StringItem index="17" value="Half-Sister"/>
+            <StringItem index="18" value="Son"/>
+            <StringItem index="19" value="Daughter"/>
+            <StringItem index="20" value="Grand-son"/>
+            <StringItem index="21" value="Grand-daughter"/>
+            <StringItem index="22" value="Great Grand-son"/>
+            <StringItem index="23" value="Great Grand-daughter"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relationBox8ActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="relationBox9">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="24">
+            <StringItem index="0" value="Choose One..."/>
+            <StringItem index="1" value="Father"/>
+            <StringItem index="2" value="Mother"/>
+            <StringItem index="3" value="Brother"/>
+            <StringItem index="4" value="Sister"/>
+            <StringItem index="5" value="Grand-mother"/>
+            <StringItem index="6" value="Grand-father"/>
+            <StringItem index="7" value="Aunt"/>
+            <StringItem index="8" value="Uncle"/>
+            <StringItem index="9" value="Cousin"/>
+            <StringItem index="10" value="Nephew"/>
+            <StringItem index="11" value="Niece"/>
+            <StringItem index="12" value="Step-Father"/>
+            <StringItem index="13" value="Step-Mother"/>
+            <StringItem index="14" value="Step-Brother"/>
+            <StringItem index="15" value="Step-Sister"/>
+            <StringItem index="16" value="Half-Brother"/>
+            <StringItem index="17" value="Half-Sister"/>
+            <StringItem index="18" value="Son"/>
+            <StringItem index="19" value="Daughter"/>
+            <StringItem index="20" value="Grand-son"/>
+            <StringItem index="21" value="Grand-daughter"/>
+            <StringItem index="22" value="Great Grand-son"/>
+            <StringItem index="23" value="Great Grand-daughter"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relationBox9ActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="relationBox10">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="24">
+            <StringItem index="0" value="Choose One..."/>
+            <StringItem index="1" value="Father"/>
+            <StringItem index="2" value="Mother"/>
+            <StringItem index="3" value="Brother"/>
+            <StringItem index="4" value="Sister"/>
+            <StringItem index="5" value="Grand-mother"/>
+            <StringItem index="6" value="Grand-father"/>
+            <StringItem index="7" value="Aunt"/>
+            <StringItem index="8" value="Uncle"/>
+            <StringItem index="9" value="Cousin"/>
+            <StringItem index="10" value="Nephew"/>
+            <StringItem index="11" value="Niece"/>
+            <StringItem index="12" value="Step-Father"/>
+            <StringItem index="13" value="Step-Mother"/>
+            <StringItem index="14" value="Step-Brother"/>
+            <StringItem index="15" value="Step-Sister"/>
+            <StringItem index="16" value="Half-Brother"/>
+            <StringItem index="17" value="Half-Sister"/>
+            <StringItem index="18" value="Son"/>
+            <StringItem index="19" value="Daughter"/>
+            <StringItem index="20" value="Grand-son"/>
+            <StringItem index="21" value="Grand-daughter"/>
+            <StringItem index="22" value="Great Grand-son"/>
+            <StringItem index="23" value="Great Grand-daughter"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relationBox10ActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="pictureBtn6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add picture"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn6ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nameField7">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameField7ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="pictureBtn7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add picture"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn7ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nameField8">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameField8ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="pictureBtn8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add picture"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn8ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nameField9">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameField9ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="pictureBtn9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add picture"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn9ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nameField10">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameField10ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="pictureBtn10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add picture"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pictureBtn10ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
